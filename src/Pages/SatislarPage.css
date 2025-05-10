@@ -1,0 +1,86 @@
+.satis-page-container {
+    max-width: 1150px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #cae3d2; 
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  h2, h3 {
+    text-align: center;
+    color: #2e7d32;
+  }
+  
+  .satis-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+    justify-content: center;
+  }
+  
+  .satis-form input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    min-width: 160px;
+    flex: 1 1 200px;
+  }
+  
+  .satis-form button {
+    padding: 10px 18px;
+    background-color: #ff00f2;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .satis-form button:hover {
+    background-color: #fb00a7;
+  }
+  
+  .satis-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 16px;
+  }
+  
+  .satis-table th,
+  .satis-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .satis-table th {
+    background-color: #66bb6a;
+    color: white;
+  }
+  
+  .satis-table td {
+    background-color: #ffffff;
+  }
+  
+  .satis-table button {
+    margin: 0 5px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    background-color: #43a047;
+    transition: background-color 0.3s ease;
+  }
+  
+  .satis-table button:hover {
+    background-color: #2e7d32;
+  }
+  

@@ -1,0 +1,116 @@
+
+.uretim-body {
+    background: linear-gradient(135deg, #fef9f5, #fff1e6);
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  .uretim-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: #ffffffda;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .uretim-title {
+    text-align: center;
+    color: #e67e22;
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+  
+  .uretim-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+  
+  .uretim-tabs button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffb366;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .uretim-tabs button.active {
+    background-color: #ff7f0e;
+  }
+  
+  .uretim-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .uretim-form input {
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .uretim-form button {
+    padding: 10px;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .uretim-form button:hover {
+    background-color: #d35400;
+  }
+  
+  .uretim-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  
+  .uretim-table th, .uretim-table td {
+    padding: 12px;
+    border: 1px solid #eee;
+    text-align: center;
+  }
+  
+  .uretim-table th {
+    background-color: #ffe0c2;
+    color: #8e4400;
+  }
+  
+  .edit-btn {
+    padding: 6px 12px;
+    background-color: #ffa726;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-btn:hover {
+    background-color: #fb8c00;
+  }
+  
+  .grafik-baslik {
+    margin-top: 30px;
+    text-align: center;
+    color: #ff7f0e;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  

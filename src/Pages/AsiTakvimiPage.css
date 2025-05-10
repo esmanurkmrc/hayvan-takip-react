@@ -1,0 +1,110 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #c2e9fb, #81a4fd);
+  min-height: 100vh;
+}
+
+
+.asi-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.asi-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2a2a2a;
+}
+
+
+.asi-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.asi-form input,
+.asi-form textarea {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.asi-form input:focus,
+.asi-form textarea:focus {
+  border-color: #6096fd;
+  outline: none;
+  box-shadow: 0 0 5px #a5c8ff;
+}
+
+.asi-form button {
+  background-color: #6096fd;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.asi-form button:hover {
+  background-color: #4179e1;
+}
+
+
+.message {
+  text-align: center;
+  color: green;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+
+.asi-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.asi-table th,
+.asi-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.asi-table th {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.asi-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.asi-table button {
+  margin: 0 5px;
+  padding: 6px 10px;
+  background-color: #ff7675;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.asi-table button:hover {
+  background-color: #d63031;
+}

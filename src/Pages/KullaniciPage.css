@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f6fc;
+  }
+  
+  
+  .dashboard-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  
+  .sidebar {
+    width: 20%;
+    background-color: #2e7d32;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    color: white;
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+  
+  .sidebar button:hover {
+    background-color: #1b5e20;
+  }
+  
+  .sidebar .chat-box {
+    margin-top: 30px;
+  }
+  
+  .chat-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .chat-box .chat {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 10px;
+    height: 150px;
+    overflow-y: auto;
+  }
+  
+
+  .content {
+    width: 80%;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  
+  .content h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .chart-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    height: 300px;
+  }
+  
+  .messages {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .messages p {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  

@@ -1,0 +1,92 @@
+
+body.hayvanlar-bg {
+  background: linear-gradient(135deg, #e9e0fa, #4d3d65);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hayvanlar-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffffcc;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+}
+
+
+h2 {
+  text-align: center;
+  color: #4b3c69;
+  margin-bottom: 20px;
+}
+
+
+.hayvan-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hayvan-form input {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border 0.3s ease;
+}
+
+.hayvan-form input:focus {
+  border-color: #7e57c2;
+  outline: none;
+}
+
+
+button {
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: #7e57c2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #5e35b1;
+}
+
+
+.hayvan-table {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hayvan-table th,
+.hayvan-table td {
+  padding: 12px 10px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.hayvan-table th {
+  background-color: #ede7f6;
+  color: #4527a0;
+}
+
+.hayvan-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+
+.leaflet-container {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 10px;
+}

@@ -1,0 +1,88 @@
+
+.randevu-body-bg {
+    background: linear-gradient(135deg, #fdf6ec, #ffdacc);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .randevu-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffffd9;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .randevu-title {
+    text-align: center;
+    color: #d35400;
+    margin-bottom: 20px;
+  }
+  
+  .randevu-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .randevu-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .randevu-form button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #e67e22;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .randevu-form button:hover {
+    background-color: #d35400;
+  }
+  
+  .randevu-table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+  }
+  
+  .randevu-table th,
+  .randevu-table td {
+    padding: 10px;
+    border: 1px solid #eee;
+    text-align: center;
+  }
+  
+  .randevu-table th {
+    background-color: #ffe0c2;
+    color: #8e4400;
+  }
+  
+  .randevu-table tr:nth-child(even) {
+    background-color: #fff8f1;
+  }
+  
+  .randevu-table button {
+    margin: 2px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffae42;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .randevu-table button:hover {
+    background-color: #ff7f00;
+  }
+  
