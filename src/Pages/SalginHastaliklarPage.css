@@ -1,0 +1,58 @@
+.salgin-container {
+  padding: 20px;
+  background-color: #fcddec;
+  min-height: 100vh;
+}
+
+.salgin-form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.salgin-form input,
+.salgin-form textarea,
+.salgin-form button {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.salgin-form button {
+  background-color: #8e44ad;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.salgin-form button:hover {
+  background-color: #732d91;
+}
+
+.salgin-table-wrapper {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.salgin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.salgin-table th,
+.salgin-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.salgin-table th {
+  background-color: #343a40;
+  color: white;
+}

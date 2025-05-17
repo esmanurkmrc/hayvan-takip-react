@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./AsiTakvimiPage.css";
+import "./AsiTakvimiPagev.css";
 
-const AsiTakvimiPage = () => {
+const AsiTakvimiPagev = () => {
   const [asiTakvimi, setAsiTakvimi] = useState([]);
   const [form, setForm] = useState({
     hayvanId: "",
@@ -13,6 +13,7 @@ const AsiTakvimiPage = () => {
   const [editingId, setEditingId] = useState(null);
   const [message, setMessage] = useState("");
   const [roleId, setRoleId] = useState("1");
+  const [listelemeYapildi, setListelemeYapildi] = useState(false);
 
   useEffect(() => {
     const role = localStorage.getItem("roleId") || "1";
@@ -47,6 +48,7 @@ const AsiTakvimiPage = () => {
     try {
       const res = await axios.get("http://localhost:8080/api/asitakvimi");
       setAsiTakvimi(res.data);
+      setListelemeYapildi(true);
     } catch (err) {
       console.error("Listeleme hatası:", err);
     }
@@ -68,52 +70,52 @@ const AsiTakvimiPage = () => {
   };
 
   return (
-    <div className="asi-container">
-      <h2>Aşı Takvimi</h2>
+    <div className="asi-container-vet">
+      <h2 className="asi-title">Aşı Takvimi</h2>
 
-      {roleId === "2" && (
-        <form onSubmit={handleSubmit} className="asi-form">
-          <input name="hayvanId" value={form.hayvanId} onChange={handleChange} placeholder="Hayvan ID" required />
-          <input name="uygulamaTarihi" type="date" value={form.uygulamaTarihi} onChange={handleChange} required />
-          <input name="veterinerId" value={form.veterinerId} onChange={handleChange} placeholder="Veteriner ID" required />
-          <textarea name="aciklama" value={form.aciklama} onChange={handleChange} placeholder="Açıklama" />
-          <button type="submit">{editingId ? "Güncelle" : "Ekle"}</button>
-        </form>
-      )}
+      <form onSubmit={handleSubmit} className="asi-form-vet">
+        <input name="hayvanId" value={form.hayvanId} onChange={handleChange} placeholder="Hayvan ID" required />
+        <input name="uygulamaTarihi" type="date" value={form.uygulamaTarihi} onChange={handleChange} required />
+        <input name="veterinerId" value={form.veterinerId} onChange={handleChange} placeholder="Veteriner ID" required />
+        <textarea name="aciklama" value={form.aciklama} onChange={handleChange} placeholder="Açıklama" />
+        <button type="submit">{editingId ? "Güncelle" : "Ekle"}</button>
+      </form>
 
-      <button className="listele-button" onClick={listeleAsilar}>Listele</button>
+      <div className="listele-container">
+        <button className="listele-button" onClick={listeleAsilar}>Listele</button>
+      </div>
 
-      {message && <p className="message">{message}</p>}
+      {message && <p className="asi-message">{message}</p>}
 
-      <table className="asi-table">
-        <thead>
-          <tr>
-            <th>Hayvan ID</th>
-            <th>Uygulama Tarihi</th>
-            <th>Veteriner ID</th>
-            <th>Açıklama</th>
-            {roleId === "2" && <th>İşlem</th>}
-          </tr>
-        </thead>
-        <tbody>
-          {asiTakvimi.map((item) => (
-            <tr key={item.id}>
-              <td>{item.hayvanId}</td>
-              <td>{item.uygulamaTarihi}</td>
-              <td>{item.veterinerId}</td>
-              <td>{item.aciklama}</td>
-              {roleId === "2" && (
+      {listelemeYapildi && (
+        <table className="asi-table-vet">
+          <thead>
+            <tr>
+              <th>Hayvan ID</th>
+              <th>Uygulama Tarihi</th>
+              <th>Veteriner ID</th>
+              <th>Açıklama</th>
+              <th>İşlem</th>
+            </tr>
+          </thead>
+          <tbody>
+            {asiTakvimi.map((item) => (
+              <tr key={item.id}>
+                <td>{item.hayvanId}</td>
+                <td>{item.uygulamaTarihi}</td>
+                <td>{item.veterinerId}</td>
+                <td>{item.aciklama}</td>
                 <td>
                   <button onClick={() => handleEdit(item)}>Düzenle</button>
                   <button onClick={() => handleDelete(item.id)}>Sil</button>
                 </td>
-              )}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };
 
-export default AsiTakvimiPage;
+export default AsiTakvimiPagev;

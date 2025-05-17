@@ -1,0 +1,91 @@
+.veteriner-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 25px;
+  background: linear-gradient(to bottom right, #f7fff7, #d0f0c0);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.veteriner-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #256029;
+  font-size: 24px;
+}
+
+.veteriner-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.veteriner-form input {
+  padding: 10px;
+  border: 1px solid #c8e6c9;
+  border-radius: 6px;
+  width: 180px;
+  background-color: #ffffff;
+}
+
+.veteriner-form button {
+  padding: 10px 18px;
+  background-color: #388e3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.veteriner-form button:hover {
+  background-color: #1b5e20;
+}
+
+.veteriner-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f1f8e9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.veteriner-table th,
+.veteriner-table td {
+  border: 1px solid #c5e1a5;
+  padding: 12px;
+  text-align: center;
+}
+
+.veteriner-table th {
+  background-color: #81c784;
+  color: #ffffff;
+}
+
+.veteriner-table td button {
+  padding: 6px 10px;
+  margin: 0 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.veteriner-table td button:hover {
+  opacity: 0.9;
+}
+
+.veteriner-table td button:first-child {
+  background-color: #fbc02d; 
+  color: white;
+}
+
+.veteriner-table td button:last-child {
+  background-color: #e53935; 
+  color: white;
+}
+.veteriner-container {
+  background: linear-gradient(to bottom right, #f7fff7, #d0f0c0) !important;
+}

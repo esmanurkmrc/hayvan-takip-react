@@ -1,0 +1,94 @@
+.hastalikilac-container {
+  background: linear-gradient(to right, #e3f2fd, #f3e5f5);
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h2, h3 {
+  text-align: center;
+  color: #4a148c;
+  margin-bottom: 30px;
+}
+
+.icon {
+  margin-right: 8px;
+  color: #6a1b9a;
+}
+
+.form-section, .esleme-ekle-form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.form-section input,
+.form-section select,
+.esleme-ekle-form input,
+.esleme-ekle-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ce93d8;
+  margin-bottom: 15px;
+}
+
+.esleme-ekle-form button {
+  background-color: #ff9800;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.ilaclar-section {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.ilac-listesi {
+  list-style: none;
+  padding: 0;
+}
+
+.ilac-listesi li {
+  background: #fce4ec;
+  border: 1px solid #f8bbd0;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
+  color: #4a148c;
+  cursor: pointer;
+}
+
+.ilac-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ilac-detay {
+  margin-top: 10px;
+}
+
+.delete-icon {
+  margin-right: 10px;
+  color: #d32f2f;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.delete-icon:hover {
+  transform: scale(1.2);
+}
+
+.uyari {
+  text-align: center;
+  color: #6a1b9a;
+  font-style: italic;
+}

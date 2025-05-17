@@ -1,21 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 
-const LoginPage = () => {
+const LoginvPage = () => {
   const [formData, setFormData] = useState({
-    email: "",
-    password: ""
+    eposta: "",
+    sifre: ""
   });
 
   const [mesaj, setMesaj] = useState("");
   const navigate = useNavigate();
-  const location = useLocation();
-
-  
-  const query = new URLSearchParams(location.search);
-  const selectedRole = query.get("v"); // "vet" veya "ciftci"
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -27,24 +22,12 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Opsiyonel olarak role da gönderiliyor
-      const response = await axios.post("http://localhost:8080/auth/login", {
-        ...formData,
-        role: selectedRole
-      });
-
+      const response = await axios.post("http://localhost:8080/api/veterinerler/login", formData);
       setMesaj("Giriş başarılı!");
 
-      console.log("Giriş yanıtı:", response.data);
-
-      const roleName = response.data.roleName?.toLowerCase();
-
+      
       setTimeout(() => {
-        if (roleName === "veteriner") {
-          navigate("/veterinerpage");
-        } else {
-          navigate("/kullanici");
-        }
+        navigate("/veterinerpage");
       }, 1000);
     } catch (err) {
       console.error(err);
@@ -55,22 +38,22 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <form className="login-box" onSubmit={handleSubmit}>
-        <h2>Giriş Yap</h2>
+        <h2>Veteriner Giriş</h2>
 
         <input
           type="email"
-          name="email"
+          name="eposta"
           placeholder="E-posta"
-          value={formData.email}
+          value={formData.eposta}
           onChange={handleChange}
           required
         />
 
         <input
           type="password"
-          name="password"
+          name="sifre"
           placeholder="Şifre"
-          value={formData.password}
+          value={formData.sifre}
           onChange={handleChange}
           required
         />
@@ -82,7 +65,7 @@ const LoginPage = () => {
         <p className="alt-link">
           Hesabınız yok mu?{" "}
           <span
-            onClick={() => navigate("/register?v=" + selectedRole)}
+            onClick={() => navigate("/auth/vet")}
             style={{ cursor: "pointer", color: "#2980b9" }}
           >
             Kayıt Ol
@@ -93,4 +76,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default LoginvPage;

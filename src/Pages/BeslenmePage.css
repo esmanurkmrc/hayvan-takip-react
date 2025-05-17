@@ -1,0 +1,121 @@
+.beslenme-container {
+  background: linear-gradient(to bottom right, #f8fdfc, #ecf9f1);
+  padding: 40px;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  color: #2e3c40;
+}
+
+.beslenme-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #00796b;
+  font-size: 26px;
+}
+
+.beslenme-container .beslenme-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  background-color: #ffffff;
+  padding: 24px;
+  border: 1px solid #c8e6c9;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 150, 136, 0.08);
+  margin-bottom: 30px;
+}
+
+.beslenme-container .beslenme-form input {
+  flex: 1 1 220px;
+  padding: 12px;
+  border: 1px solid #b2dfdb;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #f9fdfc;
+  color: #004d40;
+  transition: 0.2s border ease;
+}
+
+.beslenme-container .beslenme-form input:focus {
+  border-color: #009688;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.beslenme-container .beslenme-form button {
+  padding: 10px 22px;
+  background-color: #26a69a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.beslenme-container .beslenme-form button:hover {
+  background-color: #00796b;
+}
+
+.beslenme-container .listele-button {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.beslenme-container .listele-button:hover {
+  background-color: #004d40;
+}
+
+.beslenme-container table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border: 1px solid #b2dfdb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  font-size: 15px;
+}
+
+.beslenme-container th,
+.beslenme-container td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #e0f2f1;
+}
+
+.beslenme-container th {
+  background-color: #e0f2f1;
+  color: #00695c;
+}
+
+.beslenme-container tr:nth-child(even) {
+  background-color: #f1f8f7;
+}
+
+.beslenme-container tr:hover {
+  background-color: #e0f7fa;
+}
+
+.beslenme-container td button {
+  padding: 7px 14px;
+  background-color: #4db6ac;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: background-color 0.2s;
+}
+
+.beslenme-container td button:hover {
+  background-color: #00897b;
+}

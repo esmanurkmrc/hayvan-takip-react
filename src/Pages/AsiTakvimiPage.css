@@ -1,110 +1,184 @@
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #c2e9fb, #81a4fd);
-  min-height: 100vh;
-}
-
-
 .asi-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9, #ffffff);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  color: #2e4d3d;
 }
-
 
 .asi-container h2 {
   text-align: center;
-  margin-bottom: 25px;
-  color: #2a2a2a;
+  margin-bottom: 30px;
+  color: #2e7d32;
+  font-size: 28px;
+  font-weight: bold;
 }
-
 
 .asi-form {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 14px;
+  background: linear-gradient(135deg, #ffffff, #f9fdfb);
+  padding: 24px;
+  border: 1px solid #c8e6c9;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
+  margin-bottom: 30px;
+  transition: 0.3s ease;
 }
 
 .asi-form input,
 .asi-form textarea {
-  padding: 10px;
-  border: 1px solid #cccccc;
+  flex: 1 1 240px;
+  padding: 12px;
+  border: 1px solid #a5d6a7;
   border-radius: 8px;
-  font-size: 16px;
-  transition: 0.3s;
+  font-size: 15px;
+  background-color: #fefefe;
+  color: #2e4d3d;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .asi-form input:focus,
 .asi-form textarea:focus {
-  border-color: #6096fd;
+  border-color: #43a047;
+  background-color: #ffffff;
   outline: none;
-  box-shadow: 0 0 5px #a5c8ff;
 }
 
 .asi-form button {
-  background-color: #6096fd;
+  padding: 12px 24px;
+  background: linear-gradient(145deg, #43a047, #388e3c);
   color: white;
   border: none;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 10px;
+  font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
+  margin-top: 5px;
 }
 
 .asi-form button:hover {
-  background-color: #4179e1;
+  background: linear-gradient(145deg, #2e7d32, #1b5e20);
 }
 
+.listele-button {
+  background: linear-gradient(145deg, #66bb6a, #43a047);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: 0.3s ease;
+}
+
+.listele-button:hover {
+  background: linear-gradient(145deg, #388e3c, #2e7d32);
+}
 
 .message {
-  text-align: center;
-  color: green;
-  margin-bottom: 15px;
-  font-weight: bold;
+  margin-bottom: 16px;
+  padding: 14px;
+  background-color: #e8f5e9;
+  border-left: 5px solid #43a047;
+  color: #1b5e20;
+  font-size: 14px;
+  border-radius: 8px;
 }
-
 
 .asi-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  background-color: #ffffff;
+  border: 1px solid #a5d6a7;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  font-size: 15px;
 }
 
 .asi-table th,
 .asi-table td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: center;
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #e0f2f1;
 }
 
 .asi-table th {
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: #c8e6c9;
+  color: #1b5e20;
 }
 
 .asi-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #f1f8f6;
 }
 
-.asi-table button {
-  margin: 0 5px;
-  padding: 6px 10px;
-  background-color: #ff7675;
+.asi-table tr:hover {
+  background-color: #e0f7fa;
+}
+
+.asi-table td button {
+  padding: 6px 14px;
+  background-color: #81c784;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  font-size: 13px;
   cursor: pointer;
-  transition: 0.3s;
+  margin-right: 6px;
+  transition: background-color 0.2s;
 }
 
-.asi-table button:hover {
-  background-color: #d63031;
+.asi-table td button:hover {
+  background-color: #388e3c;
+}
+
+
+@media screen and (max-width: 768px) {
+  .asi-form {
+    flex-direction: column;
+  }
+
+  .asi-form input,
+  .asi-form textarea {
+    flex: 1 1 100%;
+  }
+
+  .asi-table,
+  .asi-table thead,
+  .asi-table tbody,
+  .asi-table th,
+  .asi-table td,
+  .asi-table tr {
+    display: block;
+  }
+
+  .asi-table tr {
+    margin-bottom: 20px;
+    border: 1px solid #c8e6c9;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+  }
+
+  .asi-table td {
+    padding: 10px;
+    text-align: right;
+    position: relative;
+  }
+
+  .asi-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-weight: bold;
+    color: #2e7d32;
+  }
+
+  .asi-table th {
+    display: none;
+  }
 }

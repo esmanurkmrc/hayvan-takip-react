@@ -1,0 +1,59 @@
+.vet-panel-container {
+  display: flex;
+  height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.vet-info {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.vet-info:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.menu li {
+  padding: 12px 8px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 30px;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+}
+
+.full-height-menu {
+  height: 100%;
+}

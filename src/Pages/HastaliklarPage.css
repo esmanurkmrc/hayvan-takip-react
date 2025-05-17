@@ -1,0 +1,55 @@
+.hastaliklar-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.hastalik-form input {
+  margin: 6px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.hastalik-form button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #2e86de;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hastaliklar-table {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+}
+
+.hastaliklar-table th,
+.hastaliklar-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.rapor-kutusu {
+  background-color: #eaf2f8;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 10px;
+  border: 1px solid #d6eaf8;
+}
+
+.pdf-button {
+  background-color: #1e8449;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 15px;
+  cursor: pointer;
+}

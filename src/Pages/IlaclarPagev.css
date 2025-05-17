@@ -1,0 +1,77 @@
+.ilaclar-pagev-container {
+  background: linear-gradient(to bottom right, #e0f7fa, #b3e5fc);
+  min-height: 100vh;
+  padding: 30px;
+  font-family: sans-serif;
+}
+
+.baslik {
+  text-align: center;
+  color: #01579b;
+  margin-bottom: 20px;
+}
+
+.ilac-form {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ilac-form input,
+.ilac-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.ilac-form button {
+  background-color: #0288d1;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ilac-form .listele-btn {
+  background-color: #00796b;
+}
+
+.sil-btn {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  margin-left: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ilaclar-table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ilaclar-table th,
+.ilaclar-table td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.dropdown {
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+}

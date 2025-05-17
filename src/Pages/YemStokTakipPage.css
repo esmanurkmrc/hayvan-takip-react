@@ -1,0 +1,113 @@
+
+.yem-stok-container {
+  background: linear-gradient(to right, #e6f2f2, #f2fafc);
+  padding: 30px;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+.yem-stok-title {
+  text-align: center;
+  color: #004d4d;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.yem-stok-content {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+.yem-form {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #f0ffff;
+  padding: 20px;
+  border: 2px solid #b2d8d8;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 128, 128, 0.2);
+}
+
+.yem-form input {
+  padding: 10px;
+  border: 1px solid #b2d8d8;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.yem-form input:focus {
+  border-color: #008080;
+  box-shadow: 0 0 4px #66b2b2;
+}
+
+
+.yem-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.yem-buttons button {
+  flex: 1;
+  padding: 10px;
+  background-color: #008080;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.yem-buttons button:hover {
+  background-color: #005f5f;
+}
+
+
+.stok-table {
+  flex: 2;
+  min-width: 400px;
+  background-color: #ffffff;
+  border: 2px solid #b2d8d8;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 128, 128, 0.1);
+}
+
+.stok-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.stok-table th, .stok-table td {
+  border: 1px solid #e0f7f7;
+  padding: 8px;
+  text-align: left;
+}
+
+.stok-table th {
+  background-color: #ccf2f2;
+  color: #004d4d;
+}
+
+.stok-table tr:hover {
+  background-color: #e6f9f9;
+  cursor: pointer;
+}
+
+.stok-chart {
+  margin-top: 20px;
+  background-color: #f9ffff;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccecec;
+}

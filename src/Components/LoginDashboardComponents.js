@@ -6,7 +6,11 @@ const LoginDashboardPage = () => {
   const navigate = useNavigate();
 
   const goToLogin = (role) => {
-    navigate(`/auth?v=${role}`);
+    if (role === 'vet') {
+      navigate('/auth/vet');     // AuthvPage için
+    } else if (role === 'ciftci') {
+      navigate('/auth');         // AuthPage için
+    }
   };
 
   return (
@@ -18,6 +22,7 @@ const LoginDashboardPage = () => {
           className="dashboard-logo-img"
         />
       </div>
+
       <div className="dashboard-content-side">
         <h1>ÇİFTLİK TAKİP SİSTEMİ</h1>
         <p>Lütfen giriş türünüzü seçin:</p>
