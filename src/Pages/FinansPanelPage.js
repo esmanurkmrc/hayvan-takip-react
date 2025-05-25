@@ -32,7 +32,7 @@ const FinansPanelPage = () => {
         id: g.id,
         urun: g.urunAdi,
         kategori: g.kategori,
-        miktar: parseFloat(g.miktar) || 0, 
+        miktar: parseFloat(g.miktar) || 0,
         tarih: g.tarih,
         tip: "gelir"
       }));
@@ -41,7 +41,7 @@ const FinansPanelPage = () => {
         id: g.id,
         urun: g.harcamaAdi,
         kategori: g.kategori,
-        miktar: parseFloat(g.miktar) || 0, 
+        miktar: parseFloat(g.miktar) || 0,
         tarih: g.tarih,
         tip: "gider"
       }));
@@ -57,9 +57,11 @@ const FinansPanelPage = () => {
   };
 
   const handleEkle = async () => {
-    try {
-      if (!form.tip) return alert("Lütfen gelir veya gider tipini seçiniz.");
+    if (!form.urun || !form.kategori || !form.miktar || !form.tarih || !form.tip) {
+      return alert("Lütfen tüm alanları doldurun.");
+    }
 
+    try {
       const url =
         form.tip === "gelir"
           ? "http://localhost:8080/api/gelirler"
@@ -70,13 +72,13 @@ const FinansPanelPage = () => {
           ? {
               urunAdi: form.urun,
               kategori: form.kategori,
-              miktar: parseFloat(form.miktar) || 0, 
+              miktar: parseFloat(form.miktar) || 0,
               tarih: form.tarih
             }
           : {
               harcamaAdi: form.urun,
               kategori: form.kategori,
-              miktar: parseFloat(form.miktar) || 0, 
+              miktar: parseFloat(form.miktar) || 0,
               tarih: form.tarih
             };
 
@@ -86,15 +88,8 @@ const FinansPanelPage = () => {
         await axios.post(url, payload);
       }
 
-      setForm({
-        id: null,
-        urun: "",
-        kategori: "",
-        miktar: "",
-        tarih: "",
-        tip: ""
-      });
-
+      setForm({ id: null, urun: "", kategori: "", miktar: "", tarih: "", tip: "" });
+      setListeleAktif(true);
       fetchVeriler();
     } catch (error) {
       console.error("Ekleme/Güncelleme hatası:", error);
@@ -154,13 +149,15 @@ const FinansPanelPage = () => {
   };
 
   const grafikVerisi = Object.values(
-    veriler.reduce((map, item) => {
-      const ay = item.tarih?.substring(0, 7);
-      if (!map[ay]) map[ay] = { ay, gelir: 0, gider: 0 };
-      if (item.tip === "gelir") map[ay].gelir += item.miktar;
-      if (item.tip === "gider") map[ay].gider += item.miktar;
-      return map;
-    }, {})
+    veriler
+      .filter(item => item.tarih)
+      .reduce((map, item) => {
+        const ay = item.tarih.substring(0, 7);
+        if (!map[ay]) map[ay] = { ay, gelir: 0, gider: 0 };
+        if (item.tip === "gelir") map[ay].gelir += item.miktar;
+        if (item.tip === "gider") map[ay].gider += item.miktar;
+        return map;
+      }, {})
   );
 
   return (

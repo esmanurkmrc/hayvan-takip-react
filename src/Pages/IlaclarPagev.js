@@ -48,7 +48,7 @@ const IlaclarPagev = () => {
   useEffect(() => {
     getIlaclar();
     getHastaliklar();
-    // listele(); // ← bu satır yok, sadece butonla çağrılır
+    
   }, []);
 
   const handleSubmit = async (e) => {
@@ -61,7 +61,7 @@ const IlaclarPagev = () => {
       }
       setForm({ hastalikId: "", ilacId: "", doz: "", aciklama: "" });
       setEditingId(null);
-      listele(); // Ekle/Güncelle sonrası otomatik listeleme
+      listele(); 
     } catch (error) {
       console.error("Kayıt hatası", error);
     }

@@ -1,25 +1,28 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FaVirus, FaPills, FaClinicMedical, FaChevronDown, FaChevronUp, FaPlusCircle, FaTrashAlt } from "react-icons/fa";
+import { FaVirus, FaClinicMedical, FaPlusCircle, FaTrashAlt, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import "./IlaclarPage.css";
 
 const IlaclarPage = () => {
   const [hastaliklar, setHastaliklar] = useState([]);
-  const [ilaclar, setIlaclar] = useState([]);
+  const [eslesmeler, setEslesmeler] = useState([]);
   const [secilenHastalikId, setSecilenHastalikId] = useState("");
   const [expandedItemId, setExpandedItemId] = useState(null);
   const [roleId, setRoleId] = useState("1");
-  const [ilacAdiFiltre, setIlacAdiFiltre] = useState("");
 
-  const [yeniEsleme, setYeniEsleme] = useState({ hastalikId: "", ilacId: "", aciklama: "" });
+  const [yeniEsleme, setYeniEsleme] = useState({
+    hastalikId: "",
+    ilacId: "",
+    aciklama: ""
+  });
 
   useEffect(() => {
-    hastaliklariGetir();
+    getHastaliklar();
     const role = localStorage.getItem("roleId") || "1";
     setRoleId(role);
   }, []);
 
-  const hastaliklariGetir = async () => {
+  const getHastaliklar = async () => {
     try {
       const res = await axios.get("http://localhost:8080/api/hastaliklar");
       setHastaliklar(res.data);
@@ -28,34 +31,31 @@ const IlaclarPage = () => {
     }
   };
 
-  const ilaclariGetir = async (hastalikId) => {
+  const getEslesmeler = async (hastalikId) => {
     try {
-      const url = hastalikId
-        ? `http://localhost:8080/api/hastalik-ilac/hastalik/${hastalikId}`
-        : `http://localhost:8080/api/hastalik-ilac`;
-      const res = await axios.get(url);
-      setIlaclar(res.data);
+      const res = await axios.get(`http://localhost:8080/api/hastalik-ilac/hastalik/${hastalikId}`);
+      setEslesmeler(res.data);
+
+     
+      if (res.data.length > 0) {
+        const ilk = res.data[0];
+        setYeniEsleme({
+          hastalikId: ilk.hastalikId,
+          ilacId: ilk.ilacId,
+          aciklama: ilk.aciklama
+        });
+      } else {
+        setYeniEsleme({ hastalikId, ilacId: "", aciklama: "" });
+      }
     } catch (err) {
-      console.error("İlaçlar getirilemedi", err);
+      console.error("Eşleşmeler getirilemedi", err);
     }
   };
 
   const handleHastalikSecimi = (e) => {
     const id = e.target.value;
     setSecilenHastalikId(id);
-  };
-
-  const handleListele = () => {
-    ilaclariGetir(secilenHastalikId);
-  };
-
-  const toggleExpand = (id) => {
-    setExpandedItemId(expandedItemId === id ? null : id);
-  };
-
-  const handleEslemeChange = (e) => {
-    const { name, value } = e.target;
-    setYeniEsleme(prev => ({ ...prev, [name]: value }));
+    getEslesmeler(id);
   };
 
   const handleEslemeEkle = async (e) => {
@@ -63,10 +63,7 @@ const IlaclarPage = () => {
     try {
       await axios.post("http://localhost:8080/api/hastalik-ilac", yeniEsleme);
       alert("Eşleme başarıyla eklendi.");
-      if (secilenHastalikId === yeniEsleme.hastalikId) {
-        ilaclariGetir(secilenHastalikId);
-      }
-      setYeniEsleme({ hastalikId: "", ilacId: "", aciklama: "" });
+      getEslesmeler(secilenHastalikId);
     } catch (err) {
       alert("Eşleme eklenemedi.");
     }
@@ -76,62 +73,62 @@ const IlaclarPage = () => {
     if (!window.confirm("Bu eşlemeyi silmek istediğinize emin misiniz?")) return;
     try {
       await axios.delete(`http://localhost:8080/api/hastalik-ilac/${id}`);
-      ilaclariGetir(secilenHastalikId);
+      getEslesmeler(secilenHastalikId);
     } catch (err) {
       alert("Silme işlemi başarısız oldu.");
     }
   };
 
-  const filtrelenmisIlaclar = ilaclar.filter(item =>
-    item.ilacId.toString().includes(ilacAdiFiltre.trim()) ||
-    item.aciklama?.toLowerCase().includes(ilacAdiFiltre.toLowerCase())
-  );
+  const toggleExpand = (id) => {
+    setExpandedItemId(expandedItemId === id ? null : id);
+  };
 
   return (
     <div className="hastalikilac-container">
-      <h2>
-        <FaVirus className="icon" /> Hastalık - İlaç Eşleşmesi
-      </h2>
+      <h2><FaVirus className="icon" /> Hastalık - İlaç Eşleşmesi</h2>
 
       <div className="form-section">
-        <label htmlFor="hastalik-select">
-          <FaClinicMedical className="icon" />Hastalık Seç:
-        </label>
+        <label htmlFor="hastalik-select"><FaClinicMedical className="icon" /> Hastalık Seç:</label>
         <select id="hastalik-select" value={secilenHastalikId} onChange={handleHastalikSecimi}>
           <option value="">-- Hastalık Seçin --</option>
-          {hastaliklar.map((h) => (
+          {hastaliklar.map(h => (
             <option key={h.id} value={h.id}>{h.hastalikAdi}</option>
           ))}
         </select>
-        <button onClick={handleListele} className="listele-button">Listele</button>
-      </div>
-
-      <div className="form-section">
-        <label>İlaç Arama:</label>
-        <input
-          type="text"
-          placeholder="İlaç ID ya da açıklama"
-          value={ilacAdiFiltre}
-          onChange={(e) => setIlacAdiFiltre(e.target.value)}
-        />
       </div>
 
       {roleId === "2" && (
         <form className="esleme-ekle-form" onSubmit={handleEslemeEkle}>
-          <h4><FaPlusCircle className="icon" />Yeni Eşleme Ekle</h4>
-          <input type="text" name="hastalikId" placeholder="Hastalık ID" value={yeniEsleme.hastalikId} onChange={handleEslemeChange} required />
-          <input type="text" name="ilacId" placeholder="İlaç ID" value={yeniEsleme.ilacId} onChange={handleEslemeChange} required />
-          <textarea name="aciklama" placeholder="Açıklama" value={yeniEsleme.aciklama} onChange={handleEslemeChange} />
+          <h4><FaPlusCircle className="icon" /> Yeni Eşleme Ekle</h4>
+
+         
+          <input type="hidden" name="hastalikId" value={yeniEsleme.hastalikId} readOnly />
+
+         
+          <input
+            type="text"
+            name="ilacId"
+            value={yeniEsleme.ilacId}
+            readOnly
+            placeholder="İlaç ID"
+          />
+
+          <textarea
+            name="aciklama"
+            placeholder="Açıklama"
+            value={yeniEsleme.aciklama}
+            readOnly
+          />
           <button type="submit">Ekle</button>
         </form>
       )}
 
       <div className="ilaclar-section">
         <ul className="ilac-listesi">
-          {filtrelenmisIlaclar.map((item) => (
+          {eslesmeler.map((item) => (
             <li key={item.id} onClick={() => toggleExpand(item.id)}>
               <div className="ilac-header">
-                <span><strong>İlaç ID:</strong> {item.ilacId}</span>
+                <span><strong>İlaç:</strong> {item.ilacAdi}</span>
                 <div>
                   {roleId === "2" && (
                     <FaTrashAlt
@@ -148,7 +145,7 @@ const IlaclarPage = () => {
               </div>
               {expandedItemId === item.id && (
                 <div className="ilac-detay">
-                  <strong>Hastalık ID:</strong> {item.hastalikId} <br />
+                  <strong>Hastalık:</strong> {item.hastalikAdi} <br />
                   <strong>Açıklama:</strong> {item.aciklama}
                 </div>
               )}

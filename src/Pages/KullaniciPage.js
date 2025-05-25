@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./KullaniciPage.css";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
-  BarChart,
-  Bar,
+  PieChart,
+  Pie,
+  Cell,
   LineChart,
   Line,
   XAxis,
@@ -13,23 +13,31 @@ import {
   Legend,
   ResponsiveContainer
 } from "recharts";
+import "./KullaniciPage.css";
+import { FaPaw, FaSyringe, FaChartLine, FaMoon, FaSun } from "react-icons/fa";
+
+const COLORS_HAYVAN = ["#34d399", "#60a5fa", "#facc15"];
+const COLORS_GELIR = ["#f472b6", "#fb923c", "#a78bfa"];
 
 const KullaniciPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [email, setEmail] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const storedEmail = localStorage.getItem("email");
-    if (storedEmail) {
-      setEmail(storedEmail);
-    }
+    if (storedEmail) setEmail(storedEmail);
   }, []);
+
+  const toggleTheme = () => setDarkMode(!darkMode);
 
   const menuItems = [
     { label: "Kullanıcı Bilgileri", path: "/kullanici-bilgileri" },
     { label: "Hayvanlar", path: "/hayvanlar" },
     { label: "Aşı Takvimi", path: "/asi-takvimi" },
     { label: "Hastalıklar", path: "/hastaliklar" },
+    { label: "Salgın Hastalıklar", path: "/salgin-hastaliklark" },
     { label: "Randevular", path: "/randevular" },
     { label: "Üretim", path: "/uretim" },
     { label: "Satışlar", path: "/satislar" },
@@ -40,105 +48,94 @@ const KullaniciPage = () => {
     { label: "Beslenme Programı", path: "/beslenme" }
   ];
 
-  const chartData = [
-    { name: "Ocak", hayvanSayisi: 45 },
-    { name: "Şubat", hayvanSayisi: 48 },
-    { name: "Mart", hayvanSayisi: 50 }
+  const chartDataHayvan = [
+    { name: "Ocak", value: 45 },
+    { name: "Şubat", value: 48 },
+    { name: "Mart", value: 50 }
   ];
 
-  const chartData3 = [
-    { name: "Ocak", gelir: 12500 },
-    { name: "Şubat", gelir: 14000 },
-    { name: "Mart", gelir: 15500 }
+  const chartDataGelir = [
+    { name: "Ocak", value: 12500 },
+    { name: "Şubat", value: 14000 },
+    { name: "Mart", value: 15500 }
   ];
 
-  const chartData2 = [
+  const chartDataYem = [
     { name: "Ocak", yemStok: 320 },
     { name: "Şubat", yemStok: 280 },
     { name: "Mart", yemStok: 250 }
   ];
 
   return (
-    <div className="dashboard-container" style={{ background: "linear-gradient(to right, #fdf6f0, #fffdf9)", color: "#4e342e" }}>
-      <div className="topbar" style={{ backgroundColor: "#5d4037", color: "white", padding: "10px 20px" }}>
+    <div className={`dashboard-container ${darkMode ? "dark" : ""}`}>
+      
+      <div className="topbar">
         <p>Hoş geldiniz, <strong>{email}</strong></p>
+        <button onClick={toggleTheme} className="theme-toggle">
+          {darkMode ? <FaSun /> : <FaMoon />}
+        </button>
       </div>
 
-      <div className="sidebar" style={{ backgroundColor: "#fbe9e7", padding: "20px", width: "250px" }}>
-        <h2 style={{ color: "#6d4c41", textAlign: "center" }}>Kullanıcı Paneli</h2>
+    
+      <div className="sidebar">
+        <h2>Kullanıcı Paneli</h2>
         {menuItems.map((item, i) => (
           <button
             key={i}
             onClick={() => navigate(item.path)}
-            style={{
-              backgroundColor: "#a1887f",
-              color: "white",
-              border: "none",
-              padding: "10px",
-              marginBottom: "10px",
-              borderRadius: "8px",
-              cursor: "pointer"
-            }}
+            className={location.pathname === item.path ? "active" : ""}
           >
             {item.label}
           </button>
         ))}
-        <div className="chat-box" style={{ backgroundColor: "#fff", padding: "10px", border: "1px solid #d7ccc8", borderRadius: "8px" }}>
-          <h3 style={{ color: "#4e342e" }}>Canlı Sohbet</h3>
-          <div className="chat">
-            <p><strong>Veteriner:</strong> Aşı takvimi güncellendi.</p>
-            <p><strong>Kullanıcı:</strong> Teşekkürler!</p>
-          </div>
-        </div>
       </div>
 
-      <div className="content" style={{ flex: 1, padding: "60px 40px" }}>
-        <h2>Hayvan Sayısı</h2>
-        <div className="chart-container" style={{ backgroundColor: "#fffdf9", padding: "20px", borderRadius: "10px", marginBottom: "40px" }}>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={chartData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="hayvanSayisi" fill="#795548" name="Hayvan Sayısı" />
-            </BarChart>
-          </ResponsiveContainer>
+     
+      <div className="content">
+       
+        <div className="chart-row">
+          <div className="chart-container">
+            <h3><FaPaw /> Hayvan Sayısı</h3>
+            <ResponsiveContainer width="100%" height={250}>
+              <PieChart>
+                <Pie data={chartDataHayvan} dataKey="value" nameKey="name" outerRadius={90} label>
+                  {chartDataHayvan.map((entry, i) => (
+                    <Cell key={`hayvan-${i}`} fill={COLORS_HAYVAN[i % COLORS_HAYVAN.length]} />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+
+          <div className="chart-container">
+            <h3><FaChartLine /> Gelirler</h3>
+            <ResponsiveContainer width="100%" height={250}>
+              <PieChart>
+                <Pie data={chartDataGelir} dataKey="value" nameKey="name" outerRadius={90} label>
+                  {chartDataGelir.map((entry, i) => (
+                    <Cell key={`gelir-${i}`} fill={COLORS_GELIR[i % COLORS_GELIR.length]} />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
         </div>
 
-        <h2>Gelirler</h2>
-        <div className="chart-container" style={{ backgroundColor: "#fffdf9", padding: "20px", borderRadius: "10px", marginBottom: "40px" }}>
+      
+        <div className="chart-container">
+          <h3><FaSyringe /> Yem Stok Takibi</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={chartData3}>
+            <LineChart data={chartDataYem}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey="gelir" fill="#9c27b0" name="Gelir (₺)" />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-
-        <h2>Yem Stok Takibi</h2>
-        <div className="chart-container" style={{ backgroundColor: "#fffdf9", padding: "20px", borderRadius: "10px" }}>
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={chartData2}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Line type="monotone" dataKey="yemStok" stroke="#ff9800" name="Yem Stok (kg)" />
+              <Line type="monotone" dataKey="yemStok" stroke="#facc15" name="Yem Stok (kg)" />
             </LineChart>
           </ResponsiveContainer>
-        </div>
-
-        <h2>Mesajlar</h2>
-        <div className="messages" style={{ backgroundColor: "#fff", padding: "15px", border: "1px solid #e0e0e0", borderRadius: "8px" }}>
-          <p><strong>Sistem:</strong> Yeni randevunuz var.</p>
-          <p><strong>Sistem:</strong> Bugün süt üretim kaydı girildi.</p>
         </div>
       </div>
     </div>

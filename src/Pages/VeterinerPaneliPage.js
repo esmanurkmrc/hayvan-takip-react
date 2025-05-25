@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer
 } from "recharts";
@@ -14,6 +16,8 @@ const VeterinerPaneliPage = () => {
     uzmanlikAlani: ""
   });
 
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
   useEffect(() => {
     const storedVeteriner = JSON.parse(localStorage.getItem("veterinerBilgi"));
     if (storedVeteriner) {
@@ -25,7 +29,7 @@ const VeterinerPaneliPage = () => {
     { tur: "İnek", sayi: 25 },
     { tur: "Koyun", sayi: 40 },
     { tur: "Keçi", sayi: 15 },
-    { tur: "Tavuk", sayi: 60 }
+    { tur: "Tavuk", sayi: 5 }
   ];
 
   const randevuData = [
@@ -35,20 +39,19 @@ const VeterinerPaneliPage = () => {
     { tarih: "2024-05-04", sayisi: 10 }
   ];
 
-const menuItems = [
-  { label: "Veteriner Bilgileri", path: "/veterinerbilgileri" },
-  { label: "İlaçlar", path: "/ilaclar-vet" }, 
-  { label: "İlaç Stok Takibi", path: "/stok-takip" },
-  { label: "Salgın Hastalıklar", path: "/salgin-hastaliklar" },
-  { label: "Hayvanlar", path: "/hayvanlar" },
-  { label: "Hastalık Geçmişi", path: "/hastaliklar" },
-  { label: "Veteriner Takım Yönetimi", path: "/veteriner-takim" },
-  { label: "Aşı Takvimi", path: "/asi-takvimi-vet" },
-  { label: "Randevu Takvimi", path: "/randevular" },
-  { label: "Beslenme Programı", path: "/beslenme" }
-];
-
-
+  const menuItems = [
+    { label: "Veteriner Bilgileri", path: "/veterinerbilgileri" },
+    { label: "İlaçlar", path: "/ilaclar-vet" },
+    { label: "İlaç Stok Takibi", path: "/stok-takip" },
+    { label: "Salgın Hastalıklar", path: "/salgin-hastaliklar" },
+    { label: "Hayvanlar", path: "/hayvanlar" },
+    { label: "Hastalık Geçmişi", path: "/hastaliklar" },
+    { label: "Veteriner Takım Yönetimi", path: "/veteriner-takim" },
+    { label: "Aşı Takvimi", path: "/asi-takvimi-vet" },
+    { label: "Randevu Takvimi", path: "/randevular" },
+    { label: "Beslenme Programı", path: "/beslenme" },
+     { label: "Alarmlar ", path: "/alarm-paneli" }
+  ];
 
   return (
     <div className="vet-panel-container">
@@ -67,25 +70,40 @@ const menuItems = [
       </aside>
 
       <main className="main-content">
-        <h3>🐄 Hayvan Türlerine Göre Sayılar</h3>
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={hayvanData}>
-            <XAxis dataKey="tur" />
-            <YAxis />
-            <Tooltip />
-            <Bar dataKey="sayi" fill="#8884d8" />
-          </BarChart>
-        </ResponsiveContainer>
+        <div className="chart-section">
+          <h3>🐄 Hayvan Türlerine Göre Sayılar</h3>
+          <ResponsiveContainer width="100%" height={240}>
+            <BarChart data={hayvanData}>
+              <XAxis dataKey="tur" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="sayi" fill="#FF9F1C" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
 
-        <h3>📅 Randevu Sayıları</h3>
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={randevuData}>
-            <XAxis dataKey="tarih" />
-            <YAxis />
-            <Tooltip />
-            <Bar dataKey="sayisi" fill="#82ca9d" />
-          </BarChart>
-        </ResponsiveContainer>
+        <div className="row-container">
+          <div className="calendar-section">
+            <h3>📆 Takvim</h3>
+            <Calendar
+              onChange={setSelectedDate}
+              value={selectedDate}
+              className="custom-calendar"
+            />
+          </div>
+
+          <div className="chart-section">
+            <h3>📅 Randevu Sayıları</h3>
+            <ResponsiveContainer width="100%" height={240}>
+              <BarChart data={randevuData}>
+                <XAxis dataKey="tarih" />
+                <YAxis />
+                <Tooltip />
+                <Bar dataKey="sayisi" fill="#2EC4B6" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
       </main>
     </div>
   );

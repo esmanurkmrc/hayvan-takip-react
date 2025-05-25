@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   
   const query = new URLSearchParams(location.search);
-  const selectedRole = query.get("v"); // "vet" veya "ciftci"
+  const selectedRole = query.get("v"); 
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -27,7 +27,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Opsiyonel olarak role da gönderiliyor
+     
       const response = await axios.post("http://localhost:8080/auth/login", {
         ...formData,
         role: selectedRole

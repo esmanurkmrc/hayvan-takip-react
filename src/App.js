@@ -26,8 +26,7 @@ import YemStokTakipPage from "./Pages/YemStokTakipPage";
 import BeslenmePage from "./Pages/BeslenmePage";
 import AsiTakvimiPagev from "./Pages/AsiTakvimiPagev";
 import IlaclarPagev from "./Pages/IlaclarPagev";
-
-
+import SalginHastaliklarKPage from "./Pages/SalginHastaliklarKPage";
 
 function App() {
   return (
@@ -66,6 +65,10 @@ function App() {
 <Route path="/asi-takvimi-vet" element={<AsiTakvimiPagev />} />
 <Route path="/ilaclar-vet" element={<IlaclarPagev />} />
 <Route path="/ilac-stok-takibi" element={<IlacStokTakibiPage />} />
+<Route path="/salgin-hastaliklark" element={<SalginHastaliklarKPage />} />
+
+
+
 
 
         

@@ -29,7 +29,6 @@ const RandevularPage = () => {
 
   useEffect(() => {
     document.body.classList.add("randevu-body-bg");
-    fetchRandevular();
     return () => document.body.classList.remove("randevu-body-bg");
   }, []);
 
@@ -38,7 +37,7 @@ const RandevularPage = () => {
       const res = await axios.get("http://localhost:8080/api/randevular");
       setRandevular(res.data);
     } catch (error) {
-      console.error("Listeleme hatasi:", error);
+      console.error("Listeleme hatası:", error);
     }
   };
 
@@ -71,7 +70,7 @@ const RandevularPage = () => {
       setEditingId(null);
       fetchRandevular();
     } catch (error) {
-      console.error("Kayit hatasi:", error);
+      console.error("Kayıt hatası:", error);
     }
   };
 
@@ -93,13 +92,14 @@ const RandevularPage = () => {
       await axios.delete(`http://localhost:8080/api/randevular/${id}`);
       fetchRandevular();
     } catch (error) {
-      console.error("Silme hatasi:", error);
+      console.error("Silme hatası:", error);
     }
   };
 
   return (
     <div className="randevu-container">
       <h2 className="randevu-title">Randevu Yönetimi</h2>
+      
       <form className="randevu-form" onSubmit={handleSubmit}>
         <input name="veterinerId" value={form.veterinerId} onChange={handleChange} placeholder="Veteriner ID" required />
         <input name="hayvanId" value={form.hayvanId} onChange={handleChange} placeholder="Hayvan ID" required />
@@ -124,6 +124,8 @@ const RandevularPage = () => {
 
         <button type="submit">{editingId ? "Güncelle" : "Kaydet"}</button>
       </form>
+
+      <button className="listele-btn" onClick={fetchRandevular}>📋 Listele</button>
 
       <table className="randevu-table">
         <thead>

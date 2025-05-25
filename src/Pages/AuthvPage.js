@@ -85,7 +85,7 @@ const AuthvPage = () => {
 
        <button
   type="button"
-  onClick={() => navigate("/login/vet")}  // 🔄 yönlendirme güncellendi
+  onClick={() => navigate("/login/vet")}  
   style={{ marginTop: "1rem", backgroundColor: "#3498db", color: "white" }}
 >
   Giriş Yap

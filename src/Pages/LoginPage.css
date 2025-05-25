@@ -1,6 +1,6 @@
 .login-container {
     height: 100vh;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* Gece mavisinden açık maviye geçiş */
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364); 
     display: flex;
     justify-content: center;
     align-items: center;

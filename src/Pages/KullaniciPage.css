@@ -1,113 +1,163 @@
 
-
 .dashboard-container {
   display: flex;
-  background: linear-gradient(to right, #fdfdfb, #faf8f5);
-  font-family: 'Segoe UI', sans-serif;
   min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #ede9fe, #fdf4ff);
+  color: #1f2937;
 }
 
+.dashboard-container.dark {
+  background: linear-gradient(to right, #1f2937, #111827);
+  color: #f9fafb;
+}
 
 .topbar {
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 250px;
+  left: 0;
   right: 0;
   height: 50px;
-  background-color: #5d4037;
+  background: linear-gradient(to right, #7e22ce, #9333ea);
   color: white;
   display: flex;
   align-items: center;
-  padding-left: 20px;
-  font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  z-index: 10;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.theme-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
 
 .sidebar {
-  width: 250px;
-  background-color: #fbe9e7;
+  margin-top: 50px;
+  background-color: #f5f3ff;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  border-right: 2px solid #ffe0b2;
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  width: 250px;
+  min-height: calc(100vh - 50px);
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.04);
+}
+
+.dashboard-container.dark .sidebar {
+  background-color: #1e293b;
 }
 
 .sidebar h2 {
-  margin-bottom: 20px;
-  color: #6d4c41;
+  color: #7e22ce;
   text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
 }
 
-.menu-button {
-  background-color: #a1887f;
+.sidebar button {
+  background-color: #a855f7;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 10px 15px;
   margin-bottom: 10px;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  width: 100%;
+  text-align: left;
+  font-size: 15px;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.menu-button:hover {
-  background-color: #8d6e63;
+.sidebar button:hover {
+  background-color: #9333ea;
+  transform: translateX(5px);
 }
 
-.chat-box {
-  margin-top: 20px;
-  background-color: #ffffff;
-  padding: 10px;
-  border: 1px solid #d7ccc8;
-  border-radius: 8px;
-}
-
-.chat-box h3 {
-  margin-bottom: 8px;
-  color: #4e342e;
-}
-
-.chat p {
-  margin: 0;
-  font-size: 14px;
+.sidebar button.active {
+  background-color: #7e22ce;
+  box-shadow: inset 4px 0 0 #fbbf24;
+  font-weight: bold;
 }
 
 
 .content {
   flex: 1;
   padding: 80px 40px 40px 40px;
-  background-color: #fefaf7;
 }
 
-.content h2 {
+.chart-header {
+  font-size: 18px;
+  font-weight: 600;
   margin-bottom: 10px;
-  color: #4e342e;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4c1d95;
 }
+
+.dashboard-container.dark .chart-header {
+  color: #fbbf24;
+}
+
 
 .chart-container {
-  width: 100%;
-  height: 300px;
-  margin-bottom: 40px;
   background-color: #ffffff;
-  border-radius: 10px;
   padding: 20px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
 }
 
-
-.messages {
-  background-color: #ffffff;
-  padding: 15px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 15px;
+.dashboard-container.dark .chart-container {
+  background-color: #1e293b;
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.05);
 }
 
-.messages p {
-  margin: 6px 0;
+.chart-container:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
+
+.chart-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.chart-row .chart-container {
+  flex: 1 1 calc(50% - 20px);
+  min-width: 300px;
+}
+
+/* Mobil uyum */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .topbar {
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .chart-row {
+    flex-direction: column;
+  }
+} 

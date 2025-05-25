@@ -1,59 +1,122 @@
+
 .vet-panel-container {
   display: flex;
   height: 100vh;
-  font-family: "Segoe UI", sans-serif;
+  background-color: #fff7f0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
 }
+
 
 .sidebar {
   width: 260px;
-  background-color: #007bff;
+  background-color: #FF6B6B; /* Mercan kırmızısı */
   color: white;
   padding: 20px;
-  box-sizing: border-box;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
 }
 
-.vet-info {
-  background-color: rgba(255, 255, 255, 0.15);
-  padding: 12px;
+.sidebar h2 {
+  font-size: 24px;
   margin-bottom: 20px;
-  border-radius: 8px;
+  text-align: center;
+  color: #FFD93D;
+}
+
+.vet-info {
+  background-color: #FF8787;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 30px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .vet-info:hover {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: #f86464;
 }
+
+.vet-info p {
+  margin: 6px 0;
+  color: #fff2f2;
+}
+
 
 .menu {
   list-style: none;
   padding: 0;
-  margin: 0;
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 
 .menu li {
-  padding: 12px 8px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: #FFB38E;
+  border-radius: 8px;
   cursor: pointer;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease-in-out;
 }
 
 .menu li:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #ff9e70;
+  color: #fff;
 }
+
 
 .main-content {
   flex-grow: 1;
   padding: 30px;
-  background-color: #f8f9fa;
   overflow-y: auto;
 }
 
-.full-height-menu {
-  height: 100%;
+
+.chart-section,
+.calendar-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 25px;
+}
+
+
+.chart-section h3,
+.calendar-section h3 {
+  color: #FF6B6B;
+  margin-bottom: 10px;
+  font-size: 18px;
+  border-bottom: 2px dashed #FFD93D;
+  padding-bottom: 4px;
+}
+
+
+.row-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+
+.calendar-section,
+.chart-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+
+.custom-calendar {
+  border: none;
+  width: 100%;
+}
+
+.react-calendar__tile--active {
+  background: #FFD93D !important;
+  color: #333 !important;
+}
+
+.react-calendar__tile--now {
+  background: #FF9F1C !important;
+  color: white !important;
 }

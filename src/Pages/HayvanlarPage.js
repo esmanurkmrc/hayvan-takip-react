@@ -27,7 +27,6 @@ const HayvanlarPage = () => {
   const [editingId, setEditingId] = useState(null);
   const [mesaj, setMesaj] = useState("");
 
-  // 🔽 Yalnızca bu sayfa açıkken arka plan sınıfı eklenir
   useEffect(() => {
     document.body.classList.add("hayvanlar-bg");
     return () => {
