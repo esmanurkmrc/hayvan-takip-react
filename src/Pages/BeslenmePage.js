@@ -34,6 +34,13 @@ const BeslenmePage = () => {
     setForm({ hayvanId: "", yemAdi: "", miktarKg: "", tarih: "", notlar: "", veterinerId: "" });
     listele();
   };
+  useEffect(() => {
+  document.body.className = 'beslenme-bg';
+  return () => {
+    document.body.className = '';
+  };
+}, []);
+
 
   const handleEdit = (item) => {
     setEditingId(item.id);

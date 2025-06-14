@@ -1,55 +1,110 @@
+
+body.hastaliklar-bg {
+  background: linear-gradient(to right, #f0f4c3, #ffffff);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
 .hastaliklar-container {
   max-width: 1100px;
   margin: 40px auto;
-  padding: 20px;
-  background: #f5f5f5;
-  border-radius: 10px;
+  padding: 30px 25px;
+  background: linear-gradient(to right, #ffffff, #f9fbe7);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.hastalik-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .hastalik-form input {
-  margin: 6px;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  flex: 1 1 45%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cfd8dc;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.hastalik-form input:focus {
+  border-color: #42a5f5;
+  outline: none;
 }
 
 .hastalik-form button {
-  padding: 10px 20px;
-  margin-top: 10px;
-  background-color: #2e86de;
+  flex: 1 1 100%;
+  padding: 12px;
+  background-color: #42a5f5;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
+
+.hastalik-form button:hover {
+  background-color: #1e88e5;
+}
+
 
 .hastaliklar-table {
   width: 100%;
-  margin-top: 30px;
   border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 30px;
+  font-size: 15px;
 }
 
 .hastaliklar-table th,
 .hastaliklar-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  padding: 14px;
   text-align: center;
+  border-bottom: 1px solid #e0e0e0;
 }
 
+.hastaliklar-table th {
+  background-color: #ffe082;
+  color: #5d4037;
+  font-weight: 600;
+}
+
+.hastaliklar-table tr:hover {
+  background-color: #fff8e1;
+}
+
+
 .rapor-kutusu {
-  background-color: #eaf2f8;
+  background-color: #e8f5e9;
   padding: 20px;
   margin-top: 30px;
-  border-radius: 10px;
-  border: 1px solid #d6eaf8;
+  border-radius: 12px;
+  border-left: 5px solid #43a047;
+  font-size: 15px;
+  color: #2e7d32;
 }
 
 .pdf-button {
-  background-color: #1e8449;
+  background-color: #388e3c;
   color: white;
-  padding: 10px 15px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 6px;
-  margin-top: 15px;
+  border-radius: 8px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pdf-button:hover {
+  background-color: #2e7d32;
 }

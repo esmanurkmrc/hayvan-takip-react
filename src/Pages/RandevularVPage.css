@@ -1,0 +1,122 @@
+
+.randevu-body-bg {
+  background: linear-gradient(135deg, #fdf6ec, #ffdacc);
+  min-height: 100vh;
+  padding: 40px 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.randevu-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffffd9;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.randevu-title {
+  text-align: center;
+  color: #d35400;
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+
+.randevu-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.randevu-form input,
+.randevu-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.leaflet-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.randevu-form button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #e67e22;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.randevu-form button:hover {
+  background-color: #d35400;
+}
+
+.listele-btn {
+  display: block;
+  margin: 0 auto 25px auto;
+  padding: 10px 20px;
+  background-color: #ff8a65;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.listele-btn:hover {
+  background-color: #e64a19;
+}
+
+.randevu-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.randevu-table th,
+.randevu-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.randevu-table th {
+  background-color: #ffe0c2;
+  color: #8e4400;
+  font-weight: bold;
+}
+
+.randevu-table tr:nth-child(even) {
+  background-color: #fff8f1;
+}
+
+.randevu-table button {
+  margin: 2px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffae42;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.randevu-table button:hover {
+  background-color: #ff7f00;
+}

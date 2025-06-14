@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import axios from "axios";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import "./HastaliklarPage.css";
+
 
 const HastaliklarPage = () => {
   const [hastaliklar, setHastaliklar] = useState([]);
@@ -89,6 +90,10 @@ const HastaliklarPage = () => {
       console.error("Silme hatası:", err);
     }
   };
+useEffect(() => {
+  document.body.className = "hastaliklar-bg";
+  return () => { document.body.className = ""; };
+}, []);
 
   const raporIndirPDF = () => {
     const doc = new jsPDF();

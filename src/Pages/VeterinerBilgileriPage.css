@@ -1,8 +1,15 @@
+body.veteriner-bg {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #f7fff7, #d0f0c0);
+}
+
 .veteriner-container {
   max-width: 1000px;
   margin: 30px auto;
   padding: 25px;
-  background: linear-gradient(to bottom right, #f7fff7, #d0f0c0);
+  background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
@@ -78,14 +85,11 @@
 }
 
 .veteriner-table td button:first-child {
-  background-color: #fbc02d; 
+  background-color: #fbc02d;
   color: white;
 }
 
 .veteriner-table td button:last-child {
-  background-color: #e53935; 
+  background-color: #e53935;
   color: white;
-}
-.veteriner-container {
-  background: linear-gradient(to bottom right, #f7fff7, #d0f0c0) !important;
 }

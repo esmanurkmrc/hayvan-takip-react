@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./LoginPage.css";
+import "./LoginPage.css"; 
 
 const LoginvPage = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +25,6 @@ const LoginvPage = () => {
       const response = await axios.post("http://localhost:8080/api/veterinerler/login", formData);
       setMesaj("Giriş başarılı!");
 
-      
       setTimeout(() => {
         navigate("/veterinerpage");
       }, 1000);
@@ -36,42 +35,48 @@ const LoginvPage = () => {
   };
 
   return (
-    <div className="login-container">
-      <form className="login-box" onSubmit={handleSubmit}>
-        <h2>Veteriner Giriş</h2>
+    <div
+      className="fullscreen-bg"
+      style={{ backgroundImage: 'url("/giris.jpg")' }}
+    >
+      <div className="overlay-box">
+        <img src="/logo1.png" alt="Hayvan Takip Sistemi" className="login-logo" />
 
-        <input
-          type="email"
-          name="eposta"
-          placeholder="E-posta"
-          value={formData.eposta}
-          onChange={handleChange}
-          required
-        />
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h2>Veteriner Giriş</h2>
 
-        <input
-          type="password"
-          name="sifre"
-          placeholder="Şifre"
-          value={formData.sifre}
-          onChange={handleChange}
-          required
-        />
+          <input
+            type="email"
+            name="eposta"
+            placeholder="E-posta"
+            value={formData.eposta}
+            onChange={handleChange}
+            required
+          />
 
-        <button type="submit">Giriş Yap</button>
+          <input
+            type="password"
+            name="sifre"
+            placeholder="Şifre"
+            value={formData.sifre}
+            onChange={handleChange}
+            required
+          />
 
-        {mesaj && <p className="login-message">{mesaj}</p>}
+          <button type="submit">Giriş Yap</button>
 
-        <p className="alt-link">
-          Hesabınız yok mu?{" "}
-          <span
-            onClick={() => navigate("/auth/vet")}
-            style={{ cursor: "pointer", color: "#2980b9" }}
-          >
-            Kayıt Ol
-          </span>
-        </p>
-      </form>
+          {mesaj && <p className="login-message">{mesaj}</p>}
+
+          <p className="alt-link">
+            Hesabınız yok mu?{" "}
+            <span
+              onClick={() => navigate("/auth/vet")}
+            >
+              Kayıt Ol
+            </span>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

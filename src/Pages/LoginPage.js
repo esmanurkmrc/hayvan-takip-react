@@ -13,9 +13,8 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  
   const query = new URLSearchParams(location.search);
-  const selectedRole = query.get("v"); 
+  const selectedRole = query.get("v");
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -27,16 +26,12 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-     
       const response = await axios.post("http://localhost:8080/auth/login", {
         ...formData,
         role: selectedRole
       });
 
       setMesaj("Giriş başarılı!");
-
-      console.log("Giriş yanıtı:", response.data);
-
       const roleName = response.data.roleName?.toLowerCase();
 
       setTimeout(() => {
@@ -52,43 +47,46 @@ const LoginPage = () => {
     }
   };
 
+
+
   return (
-    <div className="login-container">
-      <form className="login-box" onSubmit={handleSubmit}>
-        <h2>Giriş Yap</h2>
-
-        <input
-          type="email"
-          name="email"
-          placeholder="E-posta"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-
-        <input
-          type="password"
-          name="password"
-          placeholder="Şifre"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-
-        <button type="submit">Giriş Yap</button>
-
-        {mesaj && <p className="login-message">{mesaj}</p>}
-
-        <p className="alt-link">
-          Hesabınız yok mu?{" "}
-          <span
-            onClick={() => navigate("/register?v=" + selectedRole)}
-            style={{ cursor: "pointer", color: "#2980b9" }}
-          >
-            Kayıt Ol
-          </span>
-        </p>
-      </form>
+    <div
+      className="fullscreen-bg"
+      style={{ backgroundImage: 'url("/giris.jpg")' }} 
+    >
+      <div className="overlay-box">
+        <img src="/logo1.png" alt="Hayvan Takip Sistemi" className="login-logo" />
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h2>Giriş Yap</h2>
+          <input
+            type="email"
+            name="email"
+            placeholder="E-posta"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Şifre"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit">Giriş Yap</button>
+          {mesaj && <p className="login-message">{mesaj}</p>}
+          <p className="alt-link">
+            Hesabınız yok mu?{" "}
+            <span
+              onClick={() => navigate("/register?v=" + selectedRole)}
+              style={{ cursor: "pointer", color: "#2980b9" }}
+            >
+              Kayıt Ol
+            </span>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

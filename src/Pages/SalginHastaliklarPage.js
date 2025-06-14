@@ -76,6 +76,10 @@ const SalginHastaliklarPage = () => {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+useEffect(() => {
+  document.body.className = "salgin-bg";
+  return () => { document.body.className = ""; };
+}, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -160,6 +164,7 @@ const SalginHastaliklarPage = () => {
               ))}
             </tbody>
           </table>
+          
 
           <SalginHaritaGorunumu hastaliklar={hastaliklar} />
         </div>

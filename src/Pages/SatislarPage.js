@@ -16,6 +16,10 @@ const SatislarPage = () => {
     tarih: "",
     aciklama: ""
   });
+useEffect(() => {
+  document.body.className = "satis-bg";
+  return () => { document.body.className = ""; };
+}, []);
 
   useEffect(() => {
     

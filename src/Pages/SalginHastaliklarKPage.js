@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -56,6 +56,11 @@ const SalginHastaliklarKPage = () => {
     );
     setKoordinatlar(coords.filter(Boolean));
   };
+  
+useEffect(() => {
+  document.body.className = "salgin-bg";
+  return () => { document.body.className = ""; };
+}, []);
 
   return (
     <div className="salgin-container">

@@ -1,0 +1,107 @@
+
+.hb-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fefefe;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+.hb-container h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+
+.hb-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.hb-form select,
+.hb-form button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  min-width: 180px;
+}
+
+.hb-form select:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.hb-form button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.hb-form button:hover {
+  background-color: #388e3c;
+}
+
+/* Tablo */
+.hb-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2.5rem;
+}
+
+.hb-table th,
+.hb-table td {
+  border: 1px solid #e0e0e0;
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.hb-table th {
+  background-color: #ecf0f1;
+  color: #34495e;
+  font-weight: 600;
+}
+
+.hb-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+
+.sil-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s;
+}
+
+.sil-btn:hover {
+  background-color: #c0392b;
+}
+
+
+.chart-container {
+  margin-top: 2rem;
+  background-color: #f8faff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.chart-container h3 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}

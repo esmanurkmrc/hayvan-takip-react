@@ -1,9 +1,15 @@
-.beslenme-container {
+body.beslenme-bg {
   background: linear-gradient(to bottom right, #f8fdfc, #ecf9f1);
   padding: 40px;
   font-family: 'Segoe UI', sans-serif;
   min-height: 100vh;
+  margin: 0;
   color: #2e3c40;
+}
+
+.beslenme-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .beslenme-container h2 {

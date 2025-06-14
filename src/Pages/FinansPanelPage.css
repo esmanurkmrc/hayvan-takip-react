@@ -1,103 +1,114 @@
+body.finans-bg {
+  background: linear-gradient(to right, #e0f7fa, #e1bee7);
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
 .finans-container {
-    padding: 30px;
-    max-width: 1200px;
-    margin: 30px auto;
-    background: linear-gradient(to right, #e0f7fa, #e1bee7);
-    border-radius: 16px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    font-family: "Segoe UI", sans-serif;
-  }
-  
-  h2 {
-    text-align: center;
-    color: #4a148c;
-  }
-  
-  .form-alani {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-alani input,
-  .form-alani select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    min-width: 150px;
-    font-size: 14px;
-  }
-  
-  .form-alani button {
-    padding: 10px 16px;
-    border: none;
-    border-radius: 8px;
-    background-color: #7e57c2;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .form-alani button:hover {
-    background-color: #5e35b1;
-  }
-  
-  .grafik-alani {
-    margin: 40px 0;
-    height: 350px;
-  }
-  
-  .ozet {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 30px;
-  }
-  
-  .liste {
-    background: #f3e5f5;
-    padding: 20px;
-    border-radius: 12px;
-  }
-  
-  .liste table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .liste th,
-  .liste td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .liste th {
-    background-color: #ce93d8;
-    color: white;
-  }
-  
-  .liste td {
-    background-color: #fff;
-  }
-  
-  .liste button {
-    margin: 0 4px;
-    padding: 6px 12px;
-    background-color: #ab47bc;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .liste button:hover {
-    background-color: #8e24aa;
-  }
-  
+  padding: 30px;
+  max-width: 1200px;
+  margin: 30px auto;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #4a148c;
+}
+
+.form-alani {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.form-alani input,
+.form-alani select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  min-width: 150px;
+  font-size: 14px;
+}
+
+.form-alani button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #7e57c2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-alani button:hover {
+  background-color: #5e35b1;
+}
+
+.grafik-alani {
+  margin: 40px 0;
+  height: 350px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.ozet {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.liste {
+  background: #f3e5f5;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 30px;
+}
+
+.liste table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.liste th,
+.liste td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.liste th {
+  background-color: #ce93d8;
+  color: white;
+}
+
+.liste td {
+  background-color: #fff;
+}
+
+.liste button {
+  margin: 0 4px;
+  padding: 6px 12px;
+  background-color: #ab47bc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.liste button:hover {
+  background-color: #8e24aa;
+}

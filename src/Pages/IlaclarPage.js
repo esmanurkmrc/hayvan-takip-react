@@ -15,7 +15,13 @@ const IlaclarPage = () => {
     ilacId: "",
     aciklama: ""
   });
+  useEffect(() => {
+    document.body.className = "hastalikilac-bg";
 
+    return () => {
+      document.body.className = ""; 
+    };
+  }, []);
   useEffect(() => {
     getHastaliklar();
     const role = localStorage.getItem("roleId") || "1";

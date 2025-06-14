@@ -52,7 +52,7 @@ const AuthvPage = () => {
       }}
     >
       <form className="auth-form" onSubmit={handleSubmit}>
-        <h2>Veteriner Kaydı</h2>
+        <h2>Kayıt Ol</h2>
 
         <input
           type="text"

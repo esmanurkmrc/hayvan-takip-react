@@ -1,47 +1,48 @@
-
 body.hayvanlar-bg {
-  background: linear-gradient(135deg, #e9e0fa, #4d3d65);
+  background: linear-gradient(to right, #f4f4fb, #e5e0f3);
   min-height: 100vh;
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .hayvanlar-container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 40px auto;
-  padding: 30px;
-  background-color: #ffffffcc;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  border-radius: 15px;
+  padding: 20px;
 }
 
+.form-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
 
 h2 {
   text-align: center;
-  color: #4b3c69;
-  margin-bottom: 20px;
+  color: #d81b60;
+  margin-bottom: 25px;
+  font-size: 1.6rem;
 }
-
 
 .hayvan-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .hayvan-form input {
-  padding: 10px;
+  padding: 10px 12px;
   font-size: 15px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  transition: border 0.3s ease;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
 }
 
 .hayvan-form input:focus {
-  border-color: #7e57c2;
+  border-color: #8e24aa;
   outline: none;
 }
-
 
 button {
   padding: 10px 20px;
@@ -51,13 +52,12 @@ button {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #5e35b1;
 }
-
 
 .hayvan-table {
   width: 100%;
@@ -78,15 +78,29 @@ button:hover {
 .hayvan-table th {
   background-color: #ede7f6;
   color: #4527a0;
+  font-weight: 600;
 }
 
 .hayvan-table tr:hover {
-  background-color: #f5f5f5;
+  background-color: #f8f6fd;
 }
-
 
 .leaflet-container {
   border-radius: 8px;
   overflow: hidden;
   margin-top: 10px;
+  height: 200px;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .form-card {
+    padding: 20px;
+  }
+  .hayvan-form input {
+    font-size: 14px;
+  }
+  button {
+    font-size: 14px;
+  }
 }

@@ -7,28 +7,29 @@ const LoginDashboardPage = () => {
 
   const goToLogin = (role) => {
     if (role === 'vet') {
-      navigate('/auth/vet');     // AuthvPage için
+      navigate('/auth/vet');
     } else if (role === 'ciftci') {
-      navigate('/auth');         // AuthPage için
+      navigate('/auth');
     }
   };
 
   return (
-    <div className="dashboard-wrapper">
-      <div className="dashboard-logo-side">
-        <img
-          src="/ChatGPT Image 9 May 2025 23_33_50.png"
-          alt="Çiftlik Takip Sistemi Logo"
-          className="dashboard-logo-img"
-        />
-      </div>
+    <div className="dashboard-full-wrapper">
+     
+      <video autoPlay loop muted className="dashboard-full-video">
+        <source src="/1vi.mp4" type="video/mp4" />
+        Tarayıcınız video etiketini desteklemiyor.
+      </video>
 
-      <div className="dashboard-content-side">
-        <h1>ÇİFTLİK TAKİP SİSTEMİ</h1>
-        <p>Lütfen giriş türünüzü seçin:</p>
-        <div className="dashboard-buttons">
+      
+      <div className="dashboard-overlay-content">
+        <div className="dashboard-buttons-top">
           <button onClick={() => goToLogin('vet')}>Veteriner Girişi</button>
           <button onClick={() => goToLogin('ciftci')}>Çiftçi Girişi</button>
+        </div>
+        <div className="dashboard-main-text">
+          <h1>HAYVAN TAKİP SİSTEMİ</h1>
+         
         </div>
       </div>
     </div>

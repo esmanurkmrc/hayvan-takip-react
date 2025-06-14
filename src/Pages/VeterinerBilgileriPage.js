@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import axios from "axios";
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import L from "leaflet";
@@ -56,6 +56,12 @@ const VeterinerBilgileriPage = () => {
       setForm({ ...form, adres: `${latlng.lat},${latlng.lng}` });
     }
   };
+useEffect(() => {
+  document.body.className = "veteriner-bg";
+  return () => {
+    document.body.className = "";
+  };
+}, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

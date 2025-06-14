@@ -44,30 +44,18 @@ const VeterinerPaneliPage = () => {
     { label: "İlaçlar", path: "/ilaclar-vet" },
     { label: "İlaç Stok Takibi", path: "/stok-takip" },
     { label: "Salgın Hastalıklar", path: "/salgin-hastaliklar" },
-    { label: "Hayvanlar", path: "/hayvanlar" },
-    { label: "Hastalık Geçmişi", path: "/hastaliklar" },
-    { label: "Veteriner Takım Yönetimi", path: "/veteriner-takim" },
+    { label: "Hayvanlar", path: "/hayvanlar-vet" },
+    { label: "Hastalıklar", path: "/hastaliklar-vet" },
+    { label: "Veteriner Takım Yönetimi", path: "/veteriner-takim-vet" },
     { label: "Aşı Takvimi", path: "/asi-takvimi-vet" },
-    { label: "Randevu Takvimi", path: "/randevular" },
-    { label: "Beslenme Programı", path: "/beslenme" },
+    { label: "Randevu Takvimi", path: "/randevular-vet" },
+    { label: "Beslenme Programı", path: "/beslenme-vet" },
      { label: "Alarmlar ", path: "/alarm-paneli" }
   ];
 
   return (
     <div className="vet-panel-container">
-      <aside className="sidebar">
-        <h2>🐾 Veteriner Paneli</h2>
-        <div className="vet-info" onClick={() => navigate("/veterinerbilgileri")}>
-          <p><strong>{veteriner.ad} {veteriner.soyad}</strong></p>
-          <p>{veteriner.eposta}</p>
-          <p><i>{veteriner.uzmanlikAlani}</i></p>
-        </div>
-        <ul className="menu full-height-menu">
-          {menuItems.map((item, i) => (
-            <li key={i} onClick={() => navigate(item.path)}>{item.label}</li>
-          ))}
-        </ul>
-      </aside>
+      
 
       <main className="main-content">
         <div className="chart-section">

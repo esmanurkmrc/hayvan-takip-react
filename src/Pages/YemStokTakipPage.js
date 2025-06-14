@@ -58,6 +58,12 @@ const YemStokTakipPage = () => {
       aciklama: stok.aciklama
     });
   };
+useEffect(() => {
+  document.body.className = "yem-stok-bg";
+  return () => {
+    document.body.className = "";
+  };
+}, []);
 
   useEffect(() => {
     listeleStoklar();

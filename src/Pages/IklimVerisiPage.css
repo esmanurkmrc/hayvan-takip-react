@@ -1,0 +1,157 @@
+
+body.iklim-bg {
+  background: linear-gradient(to bottom right, #e0f7fa, #ffffff); 
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.iklim-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1100px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.iklim-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.iklim-form input {
+  flex: 1 1 45%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.iklim-form button {
+  flex: 1 1 100%;
+  padding: 10px;
+  background-color: #7e57c2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.iklim-form button:hover {
+  background-color: #673ab7;
+}
+
+.listele-btn {
+  display: block;
+  margin: 0 auto 2rem;
+  padding: 10px 20px;
+  background-color: #0097a7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.listele-btn:hover {
+  background-color: #006064;
+}
+
+.iklim-uyari {
+  margin: 1rem 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  white-space: pre-line;
+}
+
+.iklim-uyari.normal {
+  background-color: #e0f7fa;
+  color: #0277bd;
+}
+
+.iklim-uyari.kritik {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.iklim-legend {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  margin-bottom: -0.5rem;
+}
+
+.iklim-legend span {
+  margin: 0 10px;
+  font-weight: 500;
+}
+
+.iklim-legend .sicaklik { color: #ff7300; }
+.iklim-legend .nem { color: #387908; }
+.iklim-legend .yagis { color: #0088FE; }
+
+
+.iklim-veri-baslik {
+  text-align: center;
+  color: #4b0082;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 2rem 0 1rem 0;
+}
+
+.iklim-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+.iklim-table th, .iklim-table td {
+  padding: 12px 16px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.iklim-table th {
+  background-color: #f4f4f4;
+  color: #444;
+}
+
+.iklim-table tr:last-child td {
+  border-bottom: none;
+}
+
+.guncelle-btn {
+  background-color: #7e57c2;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.sil-btn {
+  background-color: #ec407a;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.guncelle-btn:hover { background-color: #673ab7; }
+.sil-btn:hover { background-color: #d81b60; }

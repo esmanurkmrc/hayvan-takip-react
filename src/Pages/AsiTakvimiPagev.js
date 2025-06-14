@@ -55,7 +55,12 @@ const AsiTakvimiPagev = () => {
   };
 
   const handleEdit = (item) => {
-    setForm(item);
+    setForm({
+      hayvanId: item.hayvanId,
+      uygulamaTarihi: item.uygulamaTarihi,
+      veterinerId: "", 
+      aciklama: item.aciklama
+    });
     setEditingId(item.id);
   };
 
@@ -93,7 +98,7 @@ const AsiTakvimiPagev = () => {
             <tr>
               <th>Hayvan ID</th>
               <th>Uygulama Tarihi</th>
-              <th>Veteriner ID</th>
+              <th>Veteriner Adı</th>
               <th>Açıklama</th>
               <th>İşlem</th>
             </tr>
@@ -103,7 +108,7 @@ const AsiTakvimiPagev = () => {
               <tr key={item.id}>
                 <td>{item.hayvanId}</td>
                 <td>{item.uygulamaTarihi}</td>
-                <td>{item.veterinerId}</td>
+                <td>{item.veterinerAdi}</td>
                 <td>{item.aciklama}</td>
                 <td>
                   <button onClick={() => handleEdit(item)}>Düzenle</button>

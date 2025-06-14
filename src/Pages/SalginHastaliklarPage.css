@@ -1,58 +1,116 @@
-.salgin-container {
-  padding: 20px;
-  background-color: #fcddec;
+
+body.salgin-bg {
+  background: linear-gradient(to right, #fce4ec, #ffffff);
   min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.salgin-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  background: linear-gradient(to right, #ffffff, #fce4ec);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .salgin-form {
   background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
+
 
 .salgin-form input,
-.salgin-form textarea,
-.salgin-form button {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.salgin-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1c4e9;
+  font-size: 15px;
+  transition: border-color 0.3s;
 }
 
+.salgin-form input:focus,
+.salgin-form textarea:focus {
+  border-color: #ab47bc;
+  outline: none;
+}
+
+
 .salgin-form button {
-  background-color: #8e44ad;
+  padding: 12px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #ab47bc, #8e24aa);
   color: white;
-  cursor: pointer;
+  font-weight: bold;
   border: none;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .salgin-form button:hover {
-  background-color: #732d91;
+  background: linear-gradient(145deg, #6a1b9a, #4a148c);
 }
 
+
 .salgin-table-wrapper {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
 }
+
 
 .salgin-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .salgin-table th,
 .salgin-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  border: 1px solid #e0e0e0;
+  padding: 14px;
   text-align: center;
 }
 
 .salgin-table th {
-  background-color: #343a40;
+  background-color: #ba68c8;
   color: white;
+  font-weight: bold;
+}
+
+.salgin-table tr:hover {
+  background-color: #f3e5f5;
+}
+
+
+@media screen and (max-width: 768px) {
+  .salgin-form {
+    padding: 16px;
+  }
+
+  .salgin-form input,
+  .salgin-form textarea {
+    font-size: 14px;
+  }
+
+  .salgin-form button {
+    font-size: 14px;
+  }
+
+  .salgin-table th,
+  .salgin-table td {
+    padding: 10px;
+  }
 }

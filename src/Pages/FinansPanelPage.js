@@ -11,12 +11,19 @@ const FinansPanelPage = () => {
   const [veriler, setVeriler] = useState([]);
   const [form, setForm] = useState({
     id: null,
-    urun: "",
+    kaynak: "",
     kategori: "",
-    miktar: "",
+    tutar: "",
     tarih: "",
     tip: ""
   });
+   useEffect(() => {
+  document.body.className = "finans-bg";
+  return () => {
+    document.body.className = "";
+  };
+}, []);
+
   const [listeleAktif, setListeleAktif] = useState(false);
 
   useEffect(() => {
@@ -30,18 +37,16 @@ const FinansPanelPage = () => {
 
       const gelirVeri = gelirRes.data.map(g => ({
         id: g.id,
-        urun: g.urunAdi,
-        kategori: g.kategori,
-        miktar: parseFloat(g.miktar) || 0,
+        kaynak: g.kaynak,
+        tutar: parseFloat(g.tutar) || 0,
         tarih: g.tarih,
         tip: "gelir"
       }));
 
       const giderVeri = giderRes.data.map(g => ({
         id: g.id,
-        urun: g.harcamaAdi,
         kategori: g.kategori,
-        miktar: parseFloat(g.miktar) || 0,
+        tutar: parseFloat(g.tutar) || 0,
         tarih: g.tarih,
         tip: "gider"
       }));
@@ -57,8 +62,12 @@ const FinansPanelPage = () => {
   };
 
   const handleEkle = async () => {
-    if (!form.urun || !form.kategori || !form.miktar || !form.tarih || !form.tip) {
-      return alert("Lütfen tüm alanları doldurun.");
+    if ((form.tip === "gelir" && !form.kaynak) || !form.tutar || !form.tarih || !form.tip) {
+      return alert("Lütfen tüm gerekli alanları doldurun.");
+    }
+
+    if (isNaN(form.tutar) || parseFloat(form.tutar) <= 0) {
+      return alert("Geçerli bir tutar giriniz.");
     }
 
     try {
@@ -70,15 +79,13 @@ const FinansPanelPage = () => {
       const payload =
         form.tip === "gelir"
           ? {
-              urunAdi: form.urun,
-              kategori: form.kategori,
-              miktar: parseFloat(form.miktar) || 0,
+              kaynak: form.kaynak,
+              tutar: parseFloat(form.tutar),
               tarih: form.tarih
             }
           : {
-              harcamaAdi: form.urun,
               kategori: form.kategori,
-              miktar: parseFloat(form.miktar) || 0,
+              tutar: parseFloat(form.tutar),
               tarih: form.tarih
             };
 
@@ -88,7 +95,7 @@ const FinansPanelPage = () => {
         await axios.post(url, payload);
       }
 
-      setForm({ id: null, urun: "", kategori: "", miktar: "", tarih: "", tip: "" });
+      setForm({ id: null, kaynak: "", kategori: "", tutar: "", tarih: "", tip: "" });
       setListeleAktif(true);
       fetchVeriler();
     } catch (error) {
@@ -99,9 +106,9 @@ const FinansPanelPage = () => {
   const handleDuzenle = (item) => {
     setForm({
       id: item.id,
-      urun: item.urun,
-      kategori: item.kategori,
-      miktar: item.miktar,
+      kaynak: item.kaynak || "",
+      kategori: item.kategori || "",
+      tutar: item.tutar,
       tarih: item.tarih,
       tip: item.tip
     });
@@ -128,12 +135,11 @@ const FinansPanelPage = () => {
     doc.setFontSize(12);
     doc.text(`Tarih: ${new Date().toLocaleDateString()}`, 14, 30);
 
-    const tableColumn = ["ID", "Ürün/Harcama", "Kategori", "Miktar", "Tarih", "Tip"];
+    const tableColumn = ["ID", "Açıklama", "Tutar", "Tarih", "Tip"];
     const tableRows = veriler.map((item) => [
       item.id,
-      item.urun,
-      item.kategori,
-      item.miktar,
+      item.tip === "gelir" ? item.kaynak : item.kategori,
+      item.tutar,
       item.tarih,
       item.tip
     ]);
@@ -154,8 +160,8 @@ const FinansPanelPage = () => {
       .reduce((map, item) => {
         const ay = item.tarih.substring(0, 7);
         if (!map[ay]) map[ay] = { ay, gelir: 0, gider: 0 };
-        if (item.tip === "gelir") map[ay].gelir += item.miktar;
-        if (item.tip === "gider") map[ay].gider += item.miktar;
+        if (item.tip === "gelir") map[ay].gelir += item.tutar;
+        if (item.tip === "gider") map[ay].gider += item.tutar;
         return map;
       }, {})
   );
@@ -165,15 +171,46 @@ const FinansPanelPage = () => {
       <h2>Finans Paneli</h2>
 
       <div className="form-alani">
-        <input type="text" name="urun" placeholder="Ürün / Harcama" value={form.urun} onChange={handleChange} />
-        <input type="text" name="kategori" placeholder="Kategori" value={form.kategori} onChange={handleChange} />
-        <input type="number" name="miktar" placeholder="Miktar" value={form.miktar} onChange={handleChange} />
-        <input type="date" name="tarih" value={form.tarih} onChange={handleChange} />
         <select name="tip" value={form.tip} onChange={handleChange}>
           <option value="">Tip Seç</option>
           <option value="gelir">Gelir</option>
           <option value="gider">Gider</option>
         </select>
+
+        {form.tip === "gelir" && (
+          <input
+            type="text"
+            name="kaynak"
+            placeholder="Gelir Kaynağı"
+            value={form.kaynak}
+            onChange={handleChange}
+          />
+        )}
+
+        {form.tip === "gider" && (
+          <input
+            type="text"
+            name="kategori"
+            placeholder="Gider Kategorisi"
+            value={form.kategori}
+            onChange={handleChange}
+          />
+        )}
+
+        <input
+          type="number"
+          name="tutar"
+          placeholder="Tutar"
+          value={form.tutar}
+          onChange={handleChange}
+        />
+        <input
+          type="date"
+          name="tarih"
+          value={form.tarih}
+          onChange={handleChange}
+        />
+
         <button onClick={handleEkle}>{form.id ? "Güncelle" : "Ekle"}</button>
         <button onClick={() => setListeleAktif(true)}>Listele</button>
       </div>
@@ -213,9 +250,8 @@ const FinansPanelPage = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Ürün/Harcama</th>
-                <th>Kategori</th>
-                <th>Miktar</th>
+                <th>Açıklama</th>
+                <th>Tutar</th>
                 <th>Tarih</th>
                 <th>Tip</th>
                 <th>İşlem</th>
@@ -225,9 +261,8 @@ const FinansPanelPage = () => {
               {veriler.map((item, i) => (
                 <tr key={i}>
                   <td>{item.id}</td>
-                  <td>{item.urun}</td>
-                  <td>{item.kategori}</td>
-                  <td>{item.miktar}</td>
+                  <td>{item.tip === "gelir" ? item.kaynak : item.kategori}</td>
+                  <td>{item.tutar}</td>
                   <td>{item.tarih}</td>
                   <td>{item.tip}</td>
                   <td>
