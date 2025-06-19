@@ -1,0 +1,136 @@
+
+.sss-container {
+  flex: 1;
+  min-height: 100vh;
+  height: 100%;
+  padding: 2rem;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to right bottom, #fce4ec, #e1f5fe);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sss-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #6a1b9a;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+
+.sss-container > button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 auto 1.5rem;
+  display: block;
+  font-size: 16px;
+}
+
+.sss-container > button:hover {
+  background-color: #388e3c;
+}
+
+
+.sss-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+
+.sss-card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+.sss-card p {
+  margin: 0.5rem 0;
+  font-size: 16px;
+}
+
+
+.sss-date {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+
+.sss-card textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+
+.sss-card button {
+  background-color: #6a1b9a;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sss-card button:hover {
+  background-color: #4a148c;
+}
+
+
+.sss-actions {
+  margin-top: 1rem;
+}
+
+.sss-actions button {
+  margin-right: 10px;
+  padding: 7px 16px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 14px;
+}
+
+.sss-actions button:hover {
+  background-color: #0d47a1;
+}
+
+.sss-actions button:last-child {
+  background-color: #f44336;
+}
+
+.sss-actions button:last-child:hover {
+  background-color: #c62828;
+}
+
+.sss-card.cevapli {
+  background-color: #e8f5e9; 
+  border-left: 5px solid #4caf50;
+}
+
+
+.sss-card.cevapsiz {
+  background-color: #fff3e0; 
+  border-left: 5px solid #fb8c00;
+}

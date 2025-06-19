@@ -3,7 +3,7 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
   FaUser, FaDog, FaSyringe, FaNotesMedical, FaVirus, FaCalendarAlt,
   FaChartLine, FaShoppingCart, FaPills, FaWallet, FaWarehouse, FaUsersCog, FaUtensils,
-  FaSignOutAlt,FaTemperatureHigh
+  FaSignOutAlt,FaTemperatureHigh,FaBookOpen,FaQuestionCircle
 } from "react-icons/fa";
 import "./KullaniciLayoutPage.css";
 
@@ -21,10 +21,14 @@ const menuItems = [
   { label: "İlaçlar", path: "/ilaclar", icon: <FaPills /> },
   { label: "Finans", path: "/finans-panel", icon: <FaWallet /> },
   { label: "Yem", path: "/yem-stok", icon: <FaWarehouse /> },
-  { label: "Görev", path: "/veteriner-takim", icon: <FaUsersCog /> },
+ /* { label: "Görev", path: "/veteriner-takim", icon: <FaUsersCog /> },*/
   { label: "Beslenme", path: "/beslenme", icon: <FaUtensils /> },
-   { label: "Hastalik Belirtileri", path: "/hastalik-belirti", icon: <FaUtensils /> },
-    { label: "İklim Verisi", path: "/iklim-verisi", icon: <FaTemperatureHigh /> }
+   /*{ label: "Hastalik Belirtileri", path: "/hastalik-belirti", icon: <FaUtensils /> },*/
+    { label: "İklim Verisi", path: "/iklim-verisi", icon: <FaTemperatureHigh /> },
+    { label: "Hayvancılık Bilgisi", path: "/hayvancilik-bilgi", icon: <FaBookOpen /> },
+    { label: " Sık Sorulan Sorular", path: "/sss", icon: <FaQuestionCircle /> }
+
+
 ];
 
 const KullaniciLayoutPage = () => {
@@ -38,7 +42,7 @@ const KullaniciLayoutPage = () => {
 
   return (
     <div className="layout-container">
-      <div className="topbar"></div>
+
 
       <div className="main-layout">
         <aside className="sidebar">

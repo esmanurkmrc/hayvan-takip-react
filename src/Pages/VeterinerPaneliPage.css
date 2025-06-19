@@ -10,7 +10,7 @@
 
 .vet-sidebar {
   width: 260px;
-  background-color: #FF6B6B; /* Mercan kırmızısı */
+  background-color: #FF6B6B; 
   color: white;
   padding: 20px;
   box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);

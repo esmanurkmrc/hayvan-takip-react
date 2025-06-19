@@ -1,0 +1,116 @@
+.bilgi-wrapper {
+  padding: 40px;
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3ffe2, #e0f7fa, #fce4ec);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bilgi-wrapper h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #5e35b1;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.bilgi-form {
+  background: #ffffffcc;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bilgi-form input,
+.bilgi-form textarea,
+.bilgi-form select {
+  padding: 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.bilgi-form button {
+  background-color: #7e57c2;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.bilgi-form button:hover {
+  background-color: #5e35b1;
+}
+
+.bilgi-listesi {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 0 20px;
+}
+
+.bilgi-karti {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease;
+}
+
+.bilgi-karti:hover {
+  transform: translateY(-5px);
+}
+
+.bilgi-karti h3 {
+  color: #4a148c;
+  margin-bottom: 10px;
+}
+
+.bilgi-karti p {
+  margin: 5px 0;
+}
+
+.bilgi-karti img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.bilgi-butons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.bilgi-butons .edit {
+  background-color: #42a5f5;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.bilgi-butons .delete {
+  background-color: #ef5350;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}

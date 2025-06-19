@@ -120,7 +120,7 @@ const AsiTakvimiPage = () => {
               <tr key={item.id}>
                 <td>{item.hayvanId}</td>
                 <td>{item.uygulamaTarihi}</td>
-                <td>{item.veterinerAdi || item.veterinerId}</td> {/* DTO varsa ad, yoksa ID */}
+                <td>{item.veterinerAdi || item.veterinerId}</td> 
                 <td>{item.aciklama}</td>
                 {roleId === "2" && (
                   <td>

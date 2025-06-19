@@ -223,8 +223,9 @@ const FinansPanelPage = () => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="gelir" fill="#4caf50" name="Gelir (₺)" />
-            <Bar dataKey="gider" fill="#f44336" name="Gider (₺)" />
+            <Bar dataKey="gelir" fill="#81c784" />
+<Bar dataKey="gider" fill="#ff8a65" />
+
           </BarChart>
         </ResponsiveContainer>
       </div>

@@ -28,7 +28,8 @@ import BeslenmePage from "./Pages/BeslenmePage";
 import SalginHastaliklarKPage from "./Pages/SalginHastaliklarKPage";
 import HastalikBelirtiPage from "./Pages/HastalikBelirtiPage";
 import IklimVerisiPage from "./Pages/IklimVerisiPage";
-
+import HayvancilikBilgiPage from "./Pages/HayvancilikBilgiPage";
+import SikSorulanSorularPage from "./Pages/SikSorulanSorularPage";
 
 
 import VeterinerPaneliPage from "./Pages/VeterinerPaneliPage";
@@ -44,6 +45,9 @@ import HayvanlarVPage from "./Pages/HayvanlarVPage";
 import VeterinerTakimYonetimiVPage from "./Pages/VeterinerTakimYonetimiVPage";
 import BeslenmeVPage from "./Pages/BeslenmeVPage";
 import YapilacaklarPage from "./Pages/YapilacaklarPage"; 
+import HayvancilikBilgiPagev from "./Pages/HayvancilikBilgiPagev";
+import SikSorulanSorularVPage from "./Pages/SikSorulanSorularVPage";
+
 
 
 
@@ -53,7 +57,7 @@ function App() {
     <Router>
       <Routes>
 
-        {/* 🔐 Giriş Sayfaları */}
+       
         <Route path="/" element={<LoginDashboardPage />} />
         <Route path="/giris-tipi" element={<LoginDashboardPage />} />
         <Route path="/auth" element={<AuthPage />} />
@@ -61,7 +65,6 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/login/vet" element={<LoginvPage />} />
 
-        {/* 👤 Kullanıcı Layout */}
         <Route path="/" element={<KullaniciLayoutPage />}>
           <Route path="kullanici" element={<KullaniciPage />} />
           <Route path="kullanici-bilgileri" element={<KullaniciBilgileriPage />} />
@@ -78,9 +81,11 @@ function App() {
           <Route path="/salgin-hastaliklark" element={<SalginHastaliklarKPage />} />
           <Route path="/hastalik-belirti" element={<HastalikBelirtiPage />} />
           <Route path="/iklim-verisi" element={<IklimVerisiPage />} />
+          <Route path="/hayvancilik-bilgi" element={<HayvancilikBilgiPage />} />
+           <Route path="/sss" element={<SikSorulanSorularPage />} />
         </Route>
 
-        {/* 🩺 Veteriner Layout */}
+        
         <Route path="/" element={<VeterinerLayoutPage />}>
           <Route path="veterinerpage" element={<VeterinerPaneliPage />} />
           <Route path="veterinerbilgileri" element={<VeterinerBilgileriPage />} />
@@ -95,6 +100,8 @@ function App() {
           <Route path="veteriner-takim-vet" element={<VeterinerTakimYonetimiVPage />} />
           <Route path="beslenme-vet" element={<BeslenmeVPage />} />
           <Route path="/yapilacaklar" element={<YapilacaklarPage />} />
+          <Route path="/hayvancilik-bilgi-yonetimi" element={<HayvancilikBilgiPagev />} />
+          <Route path="sss-cevapla" element={<SikSorulanSorularVPage />} />
          
           
         </Route>

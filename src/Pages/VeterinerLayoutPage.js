@@ -3,7 +3,7 @@ import { useLocation, useNavigate, Outlet } from "react-router-dom";
 import {
   FaUserMd, FaPills, FaSyringe, FaCalendarAlt, FaNotesMedical, FaVirus, FaSignOutAlt, FaUtensils,FaHippo,
   FaUsers,
-  FaCapsules,FaClipboardList 
+  FaCapsules,FaClipboardList ,FaEdit ,FaClipboardCheck
 } from "react-icons/fa";
 import "./VeterinerLayoutPage.css";
 
@@ -19,6 +19,9 @@ const menuItems = [
   { label: "Veteriner Takım Yönetimi", path: "/veteriner-takim-vet", icon: <FaUsers /> },
   { label: "İlaç Stok Takibi", path: "/stok-takip", icon: <FaCapsules /> },
   { label: "Yapılacaklar", path: "/yapilacaklar", icon: <FaClipboardList /> },
+  { label: "Bilgi Yönetimi", path: "/hayvancilik-bilgi-yonetimi", icon: <FaEdit /> },
+   { label: "SSS Cevapla", path: "/sss-cevapla", icon: <FaClipboardCheck /> },
+
 
 
 ];
@@ -34,7 +37,7 @@ const VeterinerLayoutPage = () => {
   return (
     <div className="veteriner-layout">
       <aside className="sidebar">
-        <h2 className="sidebar-title">🐾 Veteriner Paneli</h2>
+        <h2 className="sidebar-title"> Veteriner Paneli</h2>
         <ul className="menu-list">
           {menuItems.map((item, i) => (
             <li
@@ -53,7 +56,7 @@ const VeterinerLayoutPage = () => {
       </aside>
 
       <main className="veteriner-content">
-        <Outlet /> {/* 🔁 Sayfa içeriği buraya yüklenir */}
+        <Outlet /> 
       </main>
     </div>
   );

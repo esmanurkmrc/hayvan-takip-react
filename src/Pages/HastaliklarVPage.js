@@ -1,7 +1,7 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import jsPDF from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable"; 
 import "./HastaliklarPage.css";
 
 const HastaliklarVPage = () => {
@@ -89,14 +89,16 @@ const HastaliklarVPage = () => {
       console.error("Silme hatası:", err);
     }
   };
-  useEffect(() => {
-  document.body.className = "hastaliklar-bg";
-  return () => { document.body.className = ""; };
-}, []);
 
+  useEffect(() => {
+    listele();
+    document.body.className = "hastaliklar-bg";
+    return () => { document.body.className = ""; };
+  }, []);
 
   const raporIndirPDF = () => {
     const doc = new jsPDF();
+    doc.setFontSize(16);
     doc.text("Hastalık Geçmişi Raporu", 14, 15);
 
     const columns = [
@@ -117,7 +119,7 @@ const HastaliklarVPage = () => {
       item.veterinerId
     ]);
 
-    doc.autoTable({
+    autoTable(doc, {
       startY: 25,
       head: [columns],
       body: rows,
